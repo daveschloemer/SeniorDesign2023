@@ -25,7 +25,7 @@ namespace FreshBooks.Data
                             Price = "",
                             imagesURL =""
                         },
-                        new Book()
+                        new Book()         
                         {
                             Edition = "",
                             Title = "",
@@ -57,7 +57,6 @@ namespace FreshBooks.Data
                             Price = "",
                             imagesURL =""
                         }
-
                     });
                     context.SaveChanges();
                 }
@@ -155,7 +154,6 @@ namespace FreshBooks.Data
                     });
                     context.SaveChanges();
                 }
-
             }
         }
     }
