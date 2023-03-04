@@ -19,43 +19,43 @@ namespace FreshBooks.Data
                     {
                         new Book()
                         {
-                            Edition = "",
-                            Title = "",
-                            ISBN = "",
-                            Price = "",
-                            imagesURL =""
+                            Edition = "6",
+                            Title = "Computer Networks: A Systems Approach",
+                            ISBN = "978-0128182000",
+                            Price = "$15.00",
+                            imagesURL ="https://firebasestorage.googleapis.com/v0/b/ucfreshbooks.appspot.com/o/images%2Fcomputernetworks.jpg?alt=media&token=274bacf5-5064-4754-8d33-913845c68394"
                         },
                         new Book()
                         {
-                            Edition = "",
-                            Title = "",
-                            ISBN = "",
-                            Price = "",
-                            imagesURL =""
+                            Edition = "0",
+                            Title = "IT Problem Management",
+                            ISBN = "978-0130307705",
+                            Price = "$6.50",
+                            imagesURL ="https://firebasestorage.googleapis.com/v0/b/ucfreshbooks.appspot.com/o/images%2FITProblemManagement.jpeg?alt=media&token=60e68456-c410-4e75-a75d-38c93503e9fa"
                         },
                         new Book()
                         {
-                            Edition = "",
-                            Title = "",
-                            ISBN = "",
-                            Price = "",
-                            imagesURL =""
+                            Edition = "1",
+                            Title = "IT Architecture For Dummies",
+                            ISBN = "978-0470554234",
+                            Price = "$11.47",
+                            imagesURL ="https://firebasestorage.googleapis.com/v0/b/ucfreshbooks.appspot.com/o/images%2Fitdum.jpg?alt=media&token=99fd8c40-760d-4a78-a69d-31a4aea2c688"
                         },
                         new Book()
                         {
-                            Edition = "",
-                            Title = "",
-                            ISBN = "",
-                            Price = "",
-                            imagesURL =""
+                            Edition = "3",
+                            Title = "Game Design Workshop: A Playcentric Approach to Creating Innovative Games",
+                            ISBN = "978-1-4822-1716-2",
+                            Price = "$15.49",
+                            imagesURL ="https://firebasestorage.googleapis.com/v0/b/ucfreshbooks.appspot.com/o/images%2Fcsharp.jpg?alt=media&token=191d5623-b438-43e1-a897-3f2e8f1bb750"
                         },
                         new Book()
                         {
-                            Edition = "",
-                            Title = "",
-                            ISBN = "",
-                            Price = "",
-                            imagesURL =""
+                            Edition = "0",
+                            Title = "Learn Microsoft PowerApps: Build customized business applications without writing any code",
+                            ISBN = "978-1789805826",
+                            Price = "$31.50",
+                            imagesURL ="https://firebasestorage.googleapis.com/v0/b/ucfreshbooks.appspot.com/o/images%2FPA.jpg?alt=media&token=ec5f7e27-5129-4dfa-a026-544e4029b0ff"
                         }
 
                     });
