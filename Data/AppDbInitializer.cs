@@ -68,28 +68,28 @@ namespace FreshBooks.Data
                     {
                         new Author()
                         {
-                            Name ="",
-                            Bio = ""
+                            Name ="Larry L. Peterson and Bruce S. Davie",
+                            Bio = "Computer Networks: A Systems Approach"
                         },
                         new Author()
                         {
-                            Name ="",
-                            Bio = ""
+                            Name ="Gary Walker",
+                            Bio = "IT Problem Management"
                         },
                         new Author()
                         {
-                            Name ="",
-                            Bio = ""
+                            Name ="Kalani Kirk Hausman and Susan Cook",
+                            Bio = "IT Architecture For Dummies"
                         },
                         new Author()
                         {
-                            Name ="",
-                            Bio = ""
+                            Name ="Tracy Fullerton",
+                            Bio = "Game Design Workshop: A Playcentric Approach to Creating Innovative Games"
                         },
                         new Author()
                         {
-                            Name ="",
-                            Bio = ""
+                            Name ="Matthew Weston",
+                            Bio = "Learn Microsoft PowerApps: Build customized business applications without writing any code"
                         }
                     });
                     context.SaveChanges();
@@ -134,23 +134,23 @@ namespace FreshBooks.Data
                     {
                         new Subject()
                         {
-                            Subjects = ""
+                            Subjects = "Information Technology"
                         },
                         new Subject()
                         {
-                            Subjects = ""
+                            Subjects = "Information Technology"
                         },
                         new Subject()
                         {
-                            Subjects = ""
+                            Subjects = "Information Technology"
                         },
                         new Subject()
                         {
-                            Subjects = ""
+                            Subjects = "Information Technology"
                         },
                         new Subject()
                         {
-                            Subjects = ""
+                            Subjects = "Information Technology"
                         }
                     });
                     context.SaveChanges();
