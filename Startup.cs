@@ -54,6 +54,9 @@ namespace FreshBook
                    new { Controller = "App", action = "Index" });
             });
 
+            //Seed database
+            AppDbInitializer.Seed(app);
+
         }
     }
 }
