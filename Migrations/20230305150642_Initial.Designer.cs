@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FreshBooks.Migrations
 {
     [DbContext(typeof(BookDbContext))]
-    [Migration("20230303191236_FixAuthor")]
-    partial class FixAuthor
+    [Migration("20230305150642_Initial")]
+    partial class Initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

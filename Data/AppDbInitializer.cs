@@ -18,6 +18,7 @@ namespace FreshBooks.Data
                     context.Book.AddRange(new List<Book>()
                     {
                         new Book()
+
                         {
                             Edition = "6",
                             Title = "Computer Networks: A Systems Approach",

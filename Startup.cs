@@ -45,14 +45,13 @@ namespace FreshBook
             app.UseAuthorization();
             app.UseAuthorization();
 
-            app.UseEndpoints(cfg =>
+            app.UseEndpoints(endpoints =>
             {
-                cfg.MapRazorPages();
-
-                cfg.MapControllerRoute("Default",
-                    "/{controller}/{action}/{id?}",
-                   new { Controller = "App", action = "Index" });
+                endpoints.MapControllerRoute(
+                    name: "default",
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
             });
+
 
             //Seed database
             AppDbInitializer.Seed(app);

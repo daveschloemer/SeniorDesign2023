@@ -47,7 +47,6 @@ namespace FreshBooks.Migrations
                     Title = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ISBN = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Price = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Authors = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     imagesURL = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     SubjectId = table.Column<int>(type: "int", nullable: false)
                 },
