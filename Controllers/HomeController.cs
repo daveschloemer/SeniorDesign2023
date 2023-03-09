@@ -1,5 +1,7 @@
-﻿using FreshBooks.Models;
+﻿using FreshBooks.Data;
+using FreshBooks.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
 
 namespace FreshBooks.Controllers
@@ -8,14 +10,17 @@ namespace FreshBooks.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
-        {
-            _logger = logger;
-        }
+        private readonly BookDbContext _context;
 
-        public IActionResult Index()
+        public HomeController(BookDbContext context)
         {
-            return View();
+            _context = context;
+        }
+        public async Task<IActionResult> Home()
+        {
+            var allBooks = await _context.Book.ToListAsync();
+            var firstThree = allBooks.Take(3);
+            return View(firstThree);
         }
 
         public IActionResult Privacy()
