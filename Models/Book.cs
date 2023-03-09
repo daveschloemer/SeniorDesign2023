@@ -16,9 +16,5 @@ namespace FreshBooks.Models
 
         public List<Author_Books> Author_Books { get; set; }
 
-        public int SubjectId { get; set; }
-        [ForeignKey("SubjectId")]
-
-        public Subject Subject { get; set; }
     }
 }
