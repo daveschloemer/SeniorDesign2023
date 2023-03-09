@@ -6,6 +6,8 @@
         public Book Book { get; set; }
 
         public int AuthorId { get; set; }
+
+        public string Subject { get; set; }
         public Author Author { get; set; }
 
     }

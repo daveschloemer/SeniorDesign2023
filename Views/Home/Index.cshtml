@@ -1,8 +1,126 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewBag.Title = "Home Page";
 }
+<div class="container">
+    <div class="row height d-flex justify-content-center align-items-center">
+        <div class="col-md-8">
+            <div class="search d-flex">
+                <input type="text" class="form-control" placeholder="Search...">
+                <button class="btn btn-primary">Search</button>
+            </div>
+        </div>
+    </div>
+</div>
+<br />
+<br />
+<div class="row">
+    <div class="col-md-4">
+        <div class="product-info">
+            <img src="~/img/book1.PNG" width="250" height="250" />
+            <h3>C# Book</h3>
+            <ul class="product-props">
+                <li>Name: </li>
+                <li>SN: </li>
+                <li>Autor: </li>
+                <li>Edition: </li>
+                <li>Book Description: </li>
+                <li>Price: </li>
+            </ul>
+            <button type="button" class="btn btn-success" data-toggle="collapse" data-target="#contactform">Contact Seller</button>
+        </div>
+        <div id="contactform" class="collapse">
+            <form>
+                <label>Your Name: </label>
+                <br />
+                <input />
+                <br />
+                <label>Email: </label>
+                <br />
+                <input type="email" />
+                <br />
+                <label>Subject: </label>
+                <br />
+                <input type="text" />
+                <br />
+                <label>Message: </label>
+                <br />
+                <textarea rows="4"></textarea>
+                <br />
+                <input type="submit" value="Send Message" />
+            </form>
+        </div>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    </div>
+    <div class="col-md-4">
+        <div class="product-info">
+            <img src="~/img/itdum.jpg" width="250" height="250">
+            <h3>ItDummies</h3>
+            <ul class="product-props">
+                <li>Name: </li>
+                <li>SN: </li>
+                <li>Autor: </li>
+                <li>Edition: </li>
+                <li>Book Description: </li>
+                <li>Price: </li>
+            </ul>
+            <button type="button" id="contactSeller" class="btn btn-success" data-toggle="collapse" data-target="#contactform2">Contact Seller</button>
+            <div id="contactform2" class="collapse">
+                <form>
+                    <label>Your Name: </label>
+                    <br />
+                    <input />
+                    <br />
+                    <label>Email: </label>
+                    <br />
+                    <input type="email" />
+                    <br />
+                    <label>Subject: </label>
+                    <br />
+                    <input type="text" />
+                    <br />
+                    <label>Message: </label>
+                    <br />
+                    <textarea rows="4"></textarea>
+                    <br />
+                    <input type="submit" value="Send Message" />
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="product-info">
+            <img src="~/img/computernetworks.jpg" width="250" height="250">
+            <h3>Computer Networking</h3>
+            <ul class="product-props">
+                <li>Name: </li>
+                <li>SN: </li>
+                <li>Autor: </li>
+                <li>Edition: </li>
+                <li>Book Description: </li>
+                <li>Price: </li>
+            </ul>
+            <button type="button" id="contactSeller" class="btn btn-success" data-toggle="collapse" data-target="#contactform3">Contact Seller</button>
+            <div id="contactform3" class="collapse">
+                <form>
+                    <label>Your Name: </label>
+                    <br />
+                    <input />
+                    <br />
+                    <label>Email: </label>
+                    <br />
+                    <input type="email" />
+                    <br />
+                    <label>Subject: </label>
+                    <br />
+                    <input type="text" />
+                    <br />
+                    <label>Message: </label>
+                    <br />
+                    <textarea rows="4"></textarea>
+                    <br />
+                    <input type="submit" value="Send Message" />
+                </form>
+            </div>
+        </div>
+    </div>
 </div>

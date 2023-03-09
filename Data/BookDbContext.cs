@@ -25,8 +25,5 @@ namespace FreshBooks.Data
         public DbSet<Author> Author { get; set; }
         public DbSet<Book> Book { get; set; }
         public DbSet<Author_Books> Author_Books { get; set; }
-
-        public DbSet<Subject> Subject { get; set; }
-
     }
 }

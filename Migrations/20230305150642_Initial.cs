@@ -17,25 +17,13 @@ namespace FreshBooks.Migrations
                     AuthorId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Bio = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Author", x => x.AuthorId);
                 });
 
-            migrationBuilder.CreateTable(
-                name: "Subject",
-                columns: table => new
-                {
-                    SubjectId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Subjects = table.Column<string>(type: "nvarchar(max)", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Subject", x => x.SubjectId);
-                });
 
             migrationBuilder.CreateTable(
                 name: "Book",
@@ -48,17 +36,6 @@ namespace FreshBooks.Migrations
                     ISBN = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Price = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     imagesURL = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    SubjectId = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Book", x => x.BookId);
-                    table.ForeignKey(
-                        name: "FK_Book_Subject_SubjectId",
-                        column: x => x.SubjectId,
-                        principalTable: "Subject",
-                        principalColumn: "SubjectId",
-                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -89,11 +66,6 @@ namespace FreshBooks.Migrations
                 name: "IX_Author_Books_BookId",
                 table: "Author_Books",
                 column: "BookId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Book_SubjectId",
-                table: "Book",
-                column: "SubjectId");
         }
 
         /// <inheritdoc />
@@ -107,9 +79,6 @@ namespace FreshBooks.Migrations
 
             migrationBuilder.DropTable(
                 name: "Book");
-
-            migrationBuilder.DropTable(
-                name: "Subject");
         }
     }
 }

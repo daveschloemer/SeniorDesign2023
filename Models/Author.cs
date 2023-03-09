@@ -8,7 +8,8 @@ namespace FreshBooks.Models
         public int AuthorId { get; set; }
 
         public string Name { get; set; }
-        public string Bio { get; set; }
+
+        public string Description { get; set; }
 
         public List<Author_Books> Author_Books { get; set; }
     }
