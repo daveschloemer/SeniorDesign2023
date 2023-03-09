@@ -19,7 +19,7 @@ namespace FreshBooks.Controllers
         public async Task<IActionResult> Home()
         {
             var allBooks = await _context.Book.ToListAsync();
-            var firstThree = allBooks.Take();
+            var firstThree = allBooks.Take(3);
             return View(firstThree);
         }
 

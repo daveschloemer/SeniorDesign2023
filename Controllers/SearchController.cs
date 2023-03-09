@@ -27,9 +27,9 @@ namespace FreshBooks.Controllers
             {
                 var filterResult = allBooks.Where(x => x.Title.ToLower().Contains(searchString.ToLower())).ToList();
 
-                return View("Index", filterResult);
+                return View("Search", filterResult);
             }
-            return View("Index", allBooks);
+            return View("Search", allBooks);
         }
     }
 }
