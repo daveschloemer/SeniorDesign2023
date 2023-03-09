@@ -13,7 +13,7 @@ namespace FreshBooks.Controllers
             _context = context;
         }
 
-        public async Task<IActionResult> Index(string searchString)
+        public async Task<IActionResult> Search()
         {
             var allBooks = await _context.Book.ToListAsync();
             return View(allBooks);
@@ -25,7 +25,7 @@ namespace FreshBooks.Controllers
 
             if (!string.IsNullOrEmpty(searchString))
             {
-                var filterResult = allBooks.Where(x => x.Title.Contains(searchString)).ToList();
+                var filterResult = allBooks.Where(x => x.Title.ToLower().Contains(searchString.ToLower())).ToList();
 
                 return View("Index", filterResult);
             }
