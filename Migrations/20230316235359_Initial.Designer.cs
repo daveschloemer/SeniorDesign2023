@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FreshBooks.Migrations
 {
     [DbContext(typeof(BookDbContext))]
-    [Migration("20230305150642_Initial")]
+    [Migration("20230316235359_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -53,13 +53,16 @@ namespace FreshBooks.Migrations
                     b.Property<int>("BookId")
                         .HasColumnType("int");
 
+                    b.Property<string>("Subject")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("AuthorId", "BookId");
 
                     b.HasIndex("BookId");
 
                     b.ToTable("Author_Books");
                 });
-
 
             modelBuilder.Entity("FreshBooks.Models.Book", b =>
                 {
@@ -91,11 +94,8 @@ namespace FreshBooks.Migrations
 
                     b.HasKey("BookId");
 
-
                     b.ToTable("Book");
                 });
-
-    
 
             modelBuilder.Entity("FreshBooks.Models.Author_Books", b =>
                 {

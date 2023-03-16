@@ -24,7 +24,6 @@ namespace FreshBooks.Migrations
                     table.PrimaryKey("PK_Author", x => x.AuthorId);
                 });
 
-
             migrationBuilder.CreateTable(
                 name: "Book",
                 columns: table => new
@@ -35,7 +34,11 @@ namespace FreshBooks.Migrations
                     Title = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ISBN = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Price = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    imagesURL = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    imagesURL = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Book", x => x.BookId);
                 });
 
             migrationBuilder.CreateTable(
@@ -43,7 +46,8 @@ namespace FreshBooks.Migrations
                 columns: table => new
                 {
                     BookId = table.Column<int>(type: "int", nullable: false),
-                    AuthorId = table.Column<int>(type: "int", nullable: false)
+                    AuthorId = table.Column<int>(type: "int", nullable: false),
+                    Subject = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
