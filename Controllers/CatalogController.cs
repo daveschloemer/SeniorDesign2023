@@ -1,27 +1,28 @@
 ﻿using FreshBooks.Data;
+using FreshBooks.Data.Service;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace FreshBooks.Controllers
 {
-    public class SearchController : Controller
+    public class CatalogController : Controller
     {
-        private readonly BookDbContext _context;
+        private readonly IBookService _service;
 
-        public SearchController(BookDbContext context)
+        public CatalogController(IBookService service)
         {
-            _context = context;
+            _service = service;
         }
 
-        public async Task<IActionResult> Search()
+        public async Task<IActionResult> Catalog()
         {
-            var allBooks = await _context.Book.ToListAsync();
+            var allBooks = await _service.GetAllAsync();
             return View(allBooks);
         }
 
         public async Task<IActionResult> Filter(string searchString)
         {
-            var allBooks = await _context.Book.ToListAsync();
+            var allBooks = await _service.GetAllAsync();
 
             if (!string.IsNullOrEmpty(searchString))
             {
