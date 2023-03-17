@@ -6,30 +6,33 @@
     <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
     <script src="~/lib/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.js"></script>
 }
-<br /><br /><br /><br />
-<div style="text-align: center">
-<img src="~/img/welcome.jpg" alt="welcome_img" align="center" />
-<h2 align="center">You are ready to start exchanging books with your peers!</h2>
 <br />
-<h2>You have successfully created an account!</h2>
+<br />
+<br />
+<br />
+<div style="text-align: center">
+    <img src="~/img/check.png" alt="check_mark_img" align="center" />
+    <h2>Your Request has been received!</h2>
+    <br />
 </div>
-<br /><br />
+<br />
+<br />
 <div class="container">
     <div class="row">
         <div class="col-sm-6">
             <div>
                 <br />
-                    <a href="/">
-                        <button class="btn btn-primary btn-lg w-100" asp-controller="App" asp-action="Index">Home</button>
-                    </a>
+                <a href="/">
+                    <button class="btn btn-primary btn-lg w-100" asp-controller="App" asp-action="Index">Home</button>
+                </a>
             </div>
             <br />
         </div>
         <div class="col-sm-6">
             <div>
                 <br />
-                <a href="/Login">
-                    <button class="btn btn-primary btn-lg w-100" data-target="#login" asp-controller="Home" asp-action="Login">Login</button>
+                <a href="/Request">
+                    <button class="btn btn-primary btn-lg w-100" asp-controller="App" asp-action="Request">Request Another Book</button>
                 </a>
             </div>
         </div>
