@@ -1,4 +1,5 @@
 using FreshBook;
+//global using FreshBooks.Services.EmailService;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
@@ -23,5 +24,6 @@ namespace eTickets
                 {
                     webBuilder.UseStartup<Startup>();
                 });
+        //ApplicationBuilder.Services.AddScoped<IEmailService, EmailService>();
     }
 }

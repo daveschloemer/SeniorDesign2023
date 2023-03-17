@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using FreshBooks.Data;
 using FreshBooks.Data.Service;
+using FreshBooks.Services.EmailService;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -30,8 +31,8 @@ namespace FreshBook
 
             //Services
             services.AddScoped<IBookService, BookService>();
+            services.AddScoped<IEmailService, EmailService>();
 
-            
             services.AddControllersWithViews();
         }
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
