@@ -22,7 +22,26 @@ namespace FreshBooks.Controllers
             var firstThree = allBooks.Take(3);
             return View(firstThree);
         }
-
+        [HttpGet("SignUp")]
+        public IActionResult SignUp()
+        {
+            return View();
+        }
+        [HttpGet("Login")]
+        public IActionResult Login()
+        {
+            return View();
+        }
+        [HttpGet("Contact")]
+        public IActionResult Contact()
+        {
+            return View();
+        }
+        [HttpGet("Request")]
+        public IActionResult Request()
+        {
+            return View();
+        }
         public IActionResult Privacy()
         {
             return View();
