@@ -1,5 +1,5 @@
 ﻿@{
-    ViewBag.Title = "SignUp";
+    ViewBag.Title = "Sign Up";
 }
 @model SignUpViewModel
 @section Scripts {
@@ -21,30 +21,30 @@
                 </div>
                 <div class="form-group">
                     <label asp-for="Email">Email: </label>
-                    <input type="email" asp-for="Email" class="form-control" />
+                    <input type="Email" asp-for="Email" class="form-control" />
                 </div>
                 <div class="form-group">
                     <label asp-for="ConfirmEmail">Confirm Email: </label>
-                    <input type="confirmEmail" asp-for="ConfirmEmail" class="form-control" />
+                    <input type="ConfirmEmail" asp-for="ConfirmEmail" class="form-control" />
                 </div>
                 <div class="form-group">
                     <label asp-for="Username">User Name: </label>
-                    <input type="username" asp-for="Username" class="form-control" />
+                    <input type="Username" asp-for="Username" class="form-control" />
                 </div>
 
                 <div class="form-group">
                     <label asp-for="Password">Password: </label>
-                    <input type="password" asp-for="Password" class="form-control" />
+                    <input type="Password" asp-for="Password" class="form-control" />
                 </div>
 
                 <div class="form-group">
                     <label asp-for="ConfirmPassword">Confirm Password: </label>
-                    <input type="confirmPassword" asp-for="ConfirmPassword" class="form-control" />
+                    <input type="ConfirmPassword" asp-for="ConfirmPassword" class="form-control" />
                 </div>
 
                 <div class="form-group">
                     <br />
-                    <a type="submit" href="/SuccessSignup" class="btn btn-primary" /><i class="fas fa-envelope"></i>Request</a>
+                    <a type="submit" href="/SuccessSignup" class="btn btn-primary" /><i class="fas fa-envelope"></i>Sign Up</a>
                 </div>
             </form>
         </div>

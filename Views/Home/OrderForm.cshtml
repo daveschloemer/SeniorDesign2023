@@ -1,0 +1,139 @@
+@{
+    ViewBag.Title = "OrderForm";
+}
+@model OrderViewModel
+@{
+    ViewBag.Title = "Your Message to the Seller";
+}
+@section Scripts {
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.js"></script>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js'></script>
+    <script>
+        mapboxgl.accessToken = 'pk.eyJ1Ijoic2NobG9lZGUiLCJhIjoiY2xlZ2ptOHE4MDdtYTN6bnQ2aHM0Y2M1MSJ9.9fLP4vGL_AzFb2TJx1u09A';
+        const map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/mapbox/streets-v12',
+            center: [-84.514954, 39.132923],//Longitude and Latitude of UC
+            zoom: 14
+        });
+        map.addControl(new mapboxgl.NavigationControl(), 'top-left');
+        this.markerStatus == false;
+
+        function remove() {
+            this.marker.remove();
+            this.markerStatus == false;
+        }
+        function setLangsam() {
+            if (this.markerStatus == true) {
+                remove();
+            }
+            this.marker = new mapboxgl.Marker({ color: 'red' })
+                .setLngLat([-84.51592, 39.13394])
+                .addTo(map);
+            this.markerStatus = true;
+        };
+        
+        function setTUC() {
+            if (this.markerStatus == true) {
+                remove();
+            }
+            this.marker = new mapboxgl.Marker({ color: 'red' })
+                .setLngLat([-84.51742, 39.13171])
+                .addTo(map);
+            this.markerStatus = true;
+        };
+        function setCRC() {
+            if (this.markerStatus == true) {
+                remove();
+            }
+            this.marker = new mapboxgl.Marker({ color: 'red' })
+                .setLngLat([-84.51523, 39.13223])
+                .addTo(map);
+            this.markerStatus = true;
+        };
+        function setMainStreet() {
+            if (this.markerStatus == true) {
+                remove();
+            }
+            this.marker = new mapboxgl.Marker({ color: 'red' })
+                .setLngLat([-84.51664, 39.13216])
+                .addTo(map);
+            this.markerStatus = true;
+        };
+        function setFifthThird() {
+            if (this.markerStatus == true) {
+                remove();
+            }
+            this.marker = new mapboxgl.Marker({ color: 'red' })
+                .setLngLat([-84.51328, 39.13094])
+                .addTo(map);
+            this.markerStatus = true;
+        };
+    </script>
+}
+<link href='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css' rel='stylesheet' />
+<div id="orderform">
+    <form method="post">
+        <div class="form-group">
+            <label asp-for="Name">First & Last Name: </label>
+            <input asp-for="Name" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Email">UC Email: </label>
+            <input type="Email" asp-for="Email" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="StudentID">M Number: </label>
+            <input type="StudentID" asp-for="StudentID" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Number">Phone Number: </label>
+            <input type="Number" asp-for="Number" class="form-control" />
+        </div>
+        <link href='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css' rel='stylesheet' />
+        <div id='map' style='width: 400px; height: 300px;'></div>
+
+        <div>
+            <h3>Locations:</h3>
+            <input type="radio" id="Location" onclick="setLangsam()" name="fav_language" value="HTML">
+            <label for="Langsam">Langsam Library</label><br>
+        </div>
+
+        <div>
+            <input type="radio" id="Location" onclick="setTUC()" name="fav_language" value="HTML">
+            <label for="TUC">Tangeman University Center/Bookstore (TUC)</label><br>
+        </div>
+
+        <div>
+            <input type="radio" id="Location" onclick="setCRC()" name="fav_language" value="HTML">
+            <label for="CRC">Campus Recreation Center/Center Court</label><br>
+        </div>
+
+        <div>
+            <input type="radio" id="Location" onclick="setMainStreet()" name="fav_language" value="HTML">
+            <label for="MS">Main Street</label><br>
+        </div>
+
+        <div>
+            <input type="radio" id="Location" onclick="setFifthThird()" name="fav_language" value="HTML">
+            <label for="53">Fifth Third Arena (Front Plaza)</label><br>
+        </div>
+
+        <div>
+            <input type="radio" id="Location" name="fav_language" value="HTML">
+            <label for="Other">Other (Make sure location is an open public place)<input type="text" name="other_reason" /></label><br>
+        </div>
+
+        <div class="form-group">
+            <br />
+            <a type="submit" href="/SuccessSignup" class="btn btn-primary" />Send Message to Buyer</a>
+            <!--<a type="submit" href="/SuccessSignup" class="btn btn-primary" /><i class="fas fa-envelope"></i> Sign Up</a>-->
+            <br />
+            <br />
+        </div>
+    </form>
+</div>
