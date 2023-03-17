@@ -14,25 +14,19 @@
             </ul>
             <p class="card-text">
                 <b>Authors:</b>
+                <a href="/OrderForm">
+                    <button type="button" id="contactSeller" class="btn btn-success" data-toggle="collapse" data-target="#contactform3">Contact Seller</button>
+                </a>
                 <hr />
                 <div class="row">
                     @foreach (var author in Model.Author_Books)
                     {
                         <div class="colum text-center">
-                            <p>@author.Author.Name</p>
+                            <p><b>@author.Author.Name</b></p>
                         </div>
                     }
                 </div>
             </p>
-        </div>
-        <div class="col-md-12">
-            <div class="card-footer ">
-                <p class="card-text">
-                    <a class="btn btn-outline-primary float-right">
-                        <i class="bi bi-eye-fill"></i> Contact
-                    </a>
-                </p>
-            </div>
         </div>
     </div>
 </div>
