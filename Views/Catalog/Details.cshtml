@@ -1,0 +1,38 @@
+﻿@model Book
+@{
+    ViewData["Title"] = "Books";
+}
+<div class="row">
+    <div class="col-md-4">
+        <div class="border border-dark">
+            <img src="@Model.imagesURL" width="250" height="250" />
+            <h3>@Model.Title</h3>
+            <ul class="product-props">
+                <li>ISBN: @Model.ISBN</li>
+                <li>Edition: @Model.Edition</li>
+                <li>Price: @Model.Price</li>
+            </ul>
+            <p class="card-text">
+                <b>Authors:</b>
+                <hr />
+                <div class="row">
+                    @foreach (var author in Model.Author_Books)
+                    {
+                        <div class="colum text-center">
+                            <p>@author.Author.Name</p>
+                        </div>
+                    }
+                </div>
+            </p>
+        </div>
+        <div class="col-md-12">
+            <div class="card-footer ">
+                <p class="card-text">
+                    <a class="btn btn-outline-primary float-right">
+                        <i class="bi bi-eye-fill"></i> Contact
+                    </a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

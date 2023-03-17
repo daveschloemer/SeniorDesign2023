@@ -20,6 +20,20 @@ namespace FreshBooks.Controllers
             return View(allBooks);
         }
 
+        //Get: Books Detail
+
+        public async Task<IActionResult> Details(int id)
+        {
+            var booksDetail = await _service.GetBookAsync(id);
+            return View(booksDetail);
+        }
+
+        //Get: Create
+        public IActionResult Create()
+        {
+            ViewData["Welcome"] = "Well to FreshBook";
+            return View();
+        }
         public async Task<IActionResult> Filter(string searchString)
         {
             var allBooks = await _service.GetAllAsync();
@@ -28,9 +42,9 @@ namespace FreshBooks.Controllers
             {
                 var filterResult = allBooks.Where(x => x.Title.ToLower().Contains(searchString.ToLower())).ToList();
 
-                return View("Search", filterResult);
+                return View("Catalog", filterResult);
             }
-            return View("Search", allBooks);
+            return View("Catalog", allBooks);
         }
     }
 }

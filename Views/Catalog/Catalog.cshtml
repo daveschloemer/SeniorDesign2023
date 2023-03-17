@@ -29,6 +29,15 @@
                     <li>@Html.DisplayNameFor(model => model.Price) : @Html.DisplayFor(Model => item.Price)</li>
                 </ul>
             </div>
+             <div class="col-md-12">
+                        <div class="card-footer ">
+                            <p class="card-text">
+                                <a class="btn btn-outline-primary float-right" asp-action="Details" asp-route-id="@item.Id">
+                                    <i class="bi bi-eye-fill"></i> Show Details
+                                </a>
+                            </p>
+                        </div>
+                    </div>
         </div>
 
     }

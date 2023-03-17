@@ -14,7 +14,7 @@ namespace FreshBooks.Data.Service
 
         public async Task<Book> GetBookAsync(int id)
         {
-            var bookDetails = _context.Book.Include(a => a.Author_Books).ThenInclude(b => b.Author)
+            var bookDetails =await _context.Book.Include(a => a.Author_Books).ThenInclude(b => b.Author)
                 .FirstOrDefaultAsync(c => c.Id == id);
             return bookDetails;
         }
