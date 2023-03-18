@@ -31,8 +31,8 @@ namespace FreshBook
 
             //Services
             services.AddScoped<IBookService, BookService>();
-            services.AddScoped<IEmailService, EmailService>();
 
+            
             services.AddControllersWithViews();
         }
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -49,7 +49,7 @@ namespace FreshBook
             app.UseStaticFiles();
 
             app.UseRouting();
-            app.UseAuthorization();
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
@@ -66,3 +66,5 @@ namespace FreshBook
         }
     }
 }
+
+
