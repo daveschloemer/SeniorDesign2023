@@ -12,7 +12,7 @@
             <div class="card mb-3">
                 <img class="card-img-top mx-auto d-block" src="@Html.DisplayFor(Model => item.imagesURL)" alt="Book image" style="object-fit: cover; height: 200px; width: 200px;">
                 <div class="card-body">
-                    <h5 class="card-title font-weight-bold">@Html.DisplayFor(Model => item.Title)</h5>
+                    <h4 class="card-title font-weight-bold">@Html.DisplayFor(Model => item.Title)</h4>
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item">
                             <span class="font-weight-bold">@Html.DisplayNameFor(model => model.ISBN): </span>
@@ -27,6 +27,16 @@
                                 ;
                             }
                         </li>
+
+@*                        <li class="list-group-item">
+                            <span class="font-weight-bold">@Html.DisplayNameFor(model => model.Author): </span>
+                            <span>@Html.DisplayFor(Model => item.Author)</span>
+                        </li>
+                        <li class="list-group-item">
+                            <span class="font-weight-bold">@Html.DisplayNameFor(model => model.Subject): </span>
+                            <span>@Html.DisplayFor(Model => item.Subject)</span>
+                        </li>*@
+
                         <li class="list-group-item">
                             <span class="font-weight-bold">@Html.DisplayNameFor(model => model.Edition): </span>
                             <span>@Html.DisplayFor(Model => item.Edition)</span>
@@ -46,6 +56,58 @@
             </div>
         </div>
     }
-
-
 </div>
+<br />
+
+<div class="card">
+    <div class="card-body">
+        <div class="container">
+            <h2 class="text-center">Discover UC and Meet at these locations!</h2>
+            <br /><br />
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+                </ol>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="https://firebasestorage.googleapis.com/v0/b/ucfreshbooks.appspot.com/o/HomePageImages%2Ftuc.jpg?alt=media&token=eeb1a3a3-da25-4f67-afcd-785fa8767dd1" class="d-block w-50 mx-auto" alt="tuc image">
+                        <div class="carousel-caption">
+                            <h4>Tangeman University Center (TUC)</h4>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://firebasestorage.googleapis.com/v0/b/ucfreshbooks.appspot.com/o/HomePageImages%2Fmain.jpg?alt=media&token=4d5d0bb5-a42b-4fa5-a267-8598ac40769b" class="d-block w-50 mx-auto" alt="main image">
+                        <div class="carousel-caption">
+                            <h4>Main Street</h4>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://firebasestorage.googleapis.com/v0/b/ucfreshbooks.appspot.com/o/HomePageImages%2Flangsam.jpg?alt=media&token=501dc5ce-f56f-4c4c-b887-363c790ee609" class="d-block w-50 mx-auto" alt="langsam image">
+                        <div class="carousel-caption">
+                            <h4>Langsam Library</h4>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://firebasestorage.googleapis.com/v0/b/ucfreshbooks.appspot.com/o/HomePageImages%2Fcrc.jpeg?alt=media&token=f426a97a-11f5-4005-8fd1-c95990fdf430" class="d-block w-50 mx-auto" alt="crc image">
+                        <div class="carousel-caption">
+                            <h4>Campus Recreation Center/Center Court</h4>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://firebasestorage.googleapis.com/v0/b/ucfreshbooks.appspot.com/o/HomePageImages%2F53a.jpg?alt=media&token=cb4eb91c-20de-448f-878b-9e69ccadb63b" class="d-block w-50 mx-auto" alt="53 image">
+                        <div class="carousel-caption"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+

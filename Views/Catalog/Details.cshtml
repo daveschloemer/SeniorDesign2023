@@ -9,10 +9,12 @@
             <h3>@Model.Title</h3>
             <ul class="product-props">
                 <li>ISBN: @Model.ISBN</li>
+                <li>Author: @Model.Author</li>
+                <li>Subject: @Model.Subject</li>
                 <li>Edition: @Model.Edition</li>
                 <li>Price: @Model.Price</li>
             </ul>
-            <p class="card-text">
+@*            <p class="card-text">
                 <b>Authors:</b>
                 <div class="row">
                     @foreach (var author in Model.Author_Books)
@@ -22,7 +24,7 @@
                         </div>
                     }
                 </div>
-            </p>
+            </p>*@
             <a href="/OrderForm">
                 <button type="button" id="contactSeller" class="btn btn-success" data-toggle="collapse" data-target="#contactform3">Contact Seller</button>
             </a>
