@@ -59,6 +59,11 @@ namespace FreshBooks.Controllers
         {
             return View();
         }
+        [HttpGet("RequestSuccess")]
+        public IActionResult RequestSuccess()
+        {
+            return View();
+        }
         public IActionResult Privacy()
         {
             return View();

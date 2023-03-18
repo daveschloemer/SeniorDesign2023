@@ -6,35 +6,52 @@
 <br />
 <br />
 <div class="row">
+    <div class="container mt-0 my-5 text-center">
+        <form class="form-inline mx-auto" action="@Url.Action("Filter", "Catalog")" method="get">
+            @Html.TextBox("searchString", null, new { @class = "form-control mr-sm-2 w-75", @placeholder = "Search", @aria_label = "Search" })
+            <input class="btn btn-success my-2 my-sm-0" type="submit" value="Search" />
+        </form>
+    </div>
+
     @foreach (var item in Model)
     {
         <div class="col-md-4">
-            <div class="border border-dark">
-                <img src="@Html.DisplayFor(Model => item.imagesURL)" width="250" height="250" />
-                <h3>@Html.DisplayFor(Model => item.Title)</h3>
-                <ul class="product-props">
-                    <li>
-                        @Html.DisplayNameFor(model => model.ISBN) : @if (item.ISBN is null)
-                        {
-                            @Html.DisplayText("Test")
-                            ;
-                        }
-                        else
-                        {
-                            @Html.DisplayFor(Model => item.ISBN)
-                            ;
-                        }
-                    </li>
-                    <li>@Html.DisplayNameFor(model => model.Edition) : @Html.DisplayFor(Model => item.Edition)</li>
-                    <li>@Html.DisplayNameFor(model => model.Price) : @Html.DisplayFor(Model => item.Price)</li>
-                    <a class="btn btn-outline-primary float-right" asp-action="Details" asp-route-id="@item.Id">Show Detail</a>
-                    <a href="/OrderForm">
-                        <button type="button" id="contactSeller" class="btn btn-success" data-toggle="collapse" data-target="#contactform3">Contact Seller</button>
-                    </a>
-                </ul>
+            <div class="card mb-3">
+                <img class="card-img-top mx-auto d-block" src="@Html.DisplayFor(Model => item.imagesURL)" alt="Book image" style="object-fit: cover; height: 200px; width: 200px;">
+                <div class="card-body">
+                    <h5 class="card-title font-weight-bold">@Html.DisplayFor(Model => item.Title)</h5>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <span class="font-weight-bold">@Html.DisplayNameFor(model => model.ISBN): </span>
+                            @if (item.ISBN is null)
+                            {
+                                <span>Test</span>
+                                ;
+                            }
+                            else
+                            {
+                                <span>@Html.DisplayFor(Model => item.ISBN)</span>
+                                ;
+                            }
+                        </li>
+                        <li class="list-group-item">
+                            <span class="font-weight-bold">@Html.DisplayNameFor(model => model.Edition): </span>
+                            <span>@Html.DisplayFor(Model => item.Edition)</span>
+                        </li>
+                        <li class="list-group-item">
+                            <span class="font-weight-bold">@Html.DisplayNameFor(model => model.Price): </span>
+                            <span>@Html.DisplayFor(Model => item.Price)</span>
+                        </li>
+                    </ul>
+                    <div class="card-footer">
+                        <a href="@Url.Action("Details", new { id = item.Id })" class="btn btn-outline-primary float-right">Show Detail</a>
+                        <a href="/OrderForm">
+                            <button type="button" id="contactSeller" class="btn btn-success" data-toggle="collapse" data-target="#contactform3">Contact Seller</button>
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
-
     }
 </div>
 
