@@ -19,13 +19,13 @@
                     <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="Home">Home</a></li>
                     <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="Contact">Contact</a></li>
                     <li class="nav-item"><a class="nav-link" asp-controller="Catalog" asp-action="Catalog">Catalog</a></li>
-                    <li class="name-item" asp-controller="Catalog" asp-action="Catalog">
+@*                    <li class="name-item" asp-controller="Catalog" asp-action="Catalog">
                             @using (Html.BeginForm("Filter", "Catalog", FormMethod.Get))
                             {
                                 @Html.TextBox("searchString")
                                 <input type="submit" value="Search" />
                             }
-                    </li>
+                    </li>*@
                     <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="Login">Login</a></li>
                     <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="SignUp">Sign Up</a></li>
                     <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="Request">Request</a></li>
