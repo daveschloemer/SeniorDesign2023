@@ -1,6 +1,7 @@
 ﻿using FreshBooks.Data.Base;
 using FreshBooks.Models;
 using Microsoft.EntityFrameworkCore;
+using System.Drawing;
 
 namespace FreshBooks.Data.Service
 {
@@ -17,6 +18,23 @@ namespace FreshBooks.Data.Service
             var bookDetails =await _context.Book.Include(a => a.Author_Books).ThenInclude(b => b.Author)
                 .FirstOrDefaultAsync(c => c.Id == id);
             return bookDetails;
+        }
+
+        public async Task AddNewBookAsync(NewBookVM data)
+        {
+            var newBook = new Book()
+            {
+                Title = data.Title,
+                Edition = data.Edition,
+                ISBN = data.ISBN,
+                imagesURL = data.imagesURL,
+                Price = data.Price
+            };
+            await _context.Book.AddAsync(newBook);
+            await _context.SaveChangesAsync();
+
+            //Authors
+
         }
     }
 }

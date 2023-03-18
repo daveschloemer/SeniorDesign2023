@@ -15,6 +15,7 @@ namespace FreshBooks.Models
         public string Price { get; set; }
         public string imagesURL { get; set; }
 
+
         public List<Author_Books> Author_Books { get; set; }
 
     }
