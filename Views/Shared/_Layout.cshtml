@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>Freshbooks: @ViewBag.Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
     <link href="~/lib/fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet" />
@@ -19,13 +20,13 @@
                     <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="Home">Home</a></li>
                     <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="Contact">Contact</a></li>
                     <li class="nav-item"><a class="nav-link" asp-controller="Catalog" asp-action="Catalog">Catalog</a></li>
-                    <li class="name-item" asp-controller="Catalog" asp-action="Catalog">
+@*                    <li class="name-item" asp-controller="Catalog" asp-action="Catalog">
                             @using (Html.BeginForm("Filter", "Catalog", FormMethod.Get))
                             {
                                 @Html.TextBox("searchString")
                                 <input type="submit" value="Search" />
                             }
-                    </li>
+                    </li>*@
                     <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="Login">Login</a></li>
                     <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="SignUp">Sign Up</a></li>
                     <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="Request">Request</a></li>
@@ -41,9 +42,15 @@
     </section>
 
 
-    <footer class="container navbar navbar-fixed-bottom">
-        <div class="text-center">Copyright 2022 FreshBooks</div>
-    </footer>
+<footer class="navbar fixed-bottom">
+  <div class="container text-center">
+    Copyright 2022 FreshBooks
+  </div>
+</footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"
