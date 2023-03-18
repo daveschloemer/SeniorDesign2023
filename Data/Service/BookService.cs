@@ -29,7 +29,9 @@ namespace FreshBooks.Data.Service
                 Edition = data.Edition,
                 ISBN = data.ISBN,
                 imagesURL = data.imagesURL,
-                Price = data.Price
+                Price = data.Price,
+                Author = data.Author,
+                Subject = data.Subject
             };
             await _context.Book.AddAsync(newBook);
             await _context.SaveChangesAsync();
