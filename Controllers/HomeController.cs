@@ -31,6 +31,7 @@ namespace FreshBooks.Controllers
             var firstThree = shuffledBooks.Take(3);
             return View(firstThree);
         }
+
         [HttpGet("SignUp")]
         public IActionResult SignUp()
         {

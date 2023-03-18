@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿/*using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations;
 
 namespace FreshBooks.Models
 {
@@ -11,4 +12,4 @@ namespace FreshBooks.Models
 
         public List<Book> Books { get; set; }
     }
-}
+}*/

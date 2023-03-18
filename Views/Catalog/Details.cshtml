@@ -1,34 +1,32 @@
-﻿@{
-    ViewData["Title"] = "Book Details";
+﻿@model Book
+@{
+    ViewData["Title"] = "Books";
 }
-
-<div class="container mt-5">
-    <div class="row">
-        <div class="col-lg-6">
-            <div class="card shadow-sm border-0">
-                <img class="card-img-top" src="@Model.imagesURL" alt="@Model.Title">
-            </div>
-        </div>
-        <div class="col-lg-6">
-            <h2 class="font-weight-bold mb-3">@Model.Title</h2>
-            <ul class="list-unstyled">
-                <li><strong>ISBN:</strong> @Model.ISBN</li>
-                <li><strong>Edition:</strong> @Model.Edition</li>
-                <li><strong>Price:</strong> @Model.Price</li>
-                <li>
-                    <strong>Authors:</strong>
-                    @for (int i = 0; i < Model.Author_Books.Count; i++)
-                    {
-                        <span>@Model.Author_Books[i].Author.Name</span>
-                        @if (i < Model.Author_Books.Count - 1)
-                        {
-                            <span>,</span>
-                        }
-                    }
-                </li>
+<div class="row">
+    <div class="col-md-4">
+        <div class="border border-dark">
+            <img src="@Model.imagesURL" width="250" height="250" />
+            <h3>@Model.Title</h3>
+            <ul class="product-props">
+                <li>ISBN: @Model.ISBN</li>
+                <li>Author: @Model.Author</li>
+                <li>Subject: @Model.Subject</li>
+                <li>Edition: @Model.Edition</li>
+                <li>Price: @Model.Price</li>
             </ul>
+@*            <p class="card-text">
+                <b>Authors:</b>
+                <div class="row">
+                    @foreach (var author in Model.Author_Books)
+                    {
+                        <div class="colum text-center">
+                            <p><b>@author.Author.Name</b></p>
+                        </div>
+                    }
+                </div>
+            </p>*@
             <a href="/OrderForm">
-                <button type="button" class="btn btn-success btn-lg mt-3" data-toggle="collapse" data-target="#contactform3">Contact Seller</button>
+                <button type="button" id="contactSeller" class="btn btn-success" data-toggle="collapse" data-target="#contactform3">Contact Seller</button>
             </a>
         </div>
     </div>

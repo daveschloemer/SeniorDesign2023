@@ -43,13 +43,13 @@ namespace FreshBooks.Data.Base
             return result;
         }
 
-        public async Task<IEnumerable<T>> GetManyAsync(params Expression<Func<T, object>>[] includeProperties)
+/*        public async Task<IEnumerable<T>> GetManyAsync(params Expression<Func<T, object>>[] includeProperties)
         {
             IQueryable<T> query = _context.Set<T>();
             query = includeProperties.Aggregate(query, (current, includeProperty) => current.Include(includeProperty));
             return await query.ToListAsync();
         }
-
+*/
         public async Task UpdateAsync(int id, T entity)
         {
             EntityEntry entityEntry = _context.Entry<T>(entity);
