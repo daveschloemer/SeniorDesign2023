@@ -20,8 +20,15 @@ namespace FreshBooks.Controllers
 
         public async Task<IActionResult> Home()
         {
+            // Get all books from the database
             var allBooks = await _service.GetAllAsync();
-            var firstThree = allBooks.Take(3);
+
+            // Shuffle the books using a random number generator
+            var rng = new Random();
+            var shuffledBooks = allBooks.OrderBy(b => rng.Next());
+
+            // Take the first three books and return them to the view
+            var firstThree = shuffledBooks.Take(3);
             return View(firstThree);
         }
         [HttpGet("SignUp")]
