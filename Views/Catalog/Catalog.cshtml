@@ -13,7 +13,7 @@
                 <img src="@Html.DisplayFor(Model => item.imagesURL)" width="250" height="250" />
                 <h3>@Html.DisplayFor(Model => item.Title)</h3>
                 <ul class="product-props">
-                    <li>
+                    @*<li>
                         @Html.DisplayNameFor(model => model.ISBN) : @if (item.ISBN is null)
                         {
                             @Html.DisplayText("Test")
@@ -24,9 +24,9 @@
                             @Html.DisplayFor(Model => item.ISBN)
                             ;
                         }
-                    </li>
-                    <li>@Html.DisplayNameFor(model => model.Edition) : @Html.DisplayFor(Model => item.Edition)</li>
-                    <li>@Html.DisplayNameFor(model => model.Price) : @Html.DisplayFor(Model => item.Price)</li>
+                    </li>*@
+                    @*<li>@Html.DisplayNameFor(model => model.Edition) : @Html.DisplayFor(Model => item.Edition)</li>*@
+                    <h4>@Html.DisplayNameFor(model => model.Price) : @Html.DisplayFor(Model => item.Price)</h4>
                     <a class="btn btn-outline-primary float-right" asp-action="Details" asp-route-id="@item.Id">Show Detail</a>
                     <a href="/OrderForm">
                         <button type="button" id="contactSeller" class="btn btn-success" data-toggle="collapse" data-target="#contactform3">Contact Seller</button>
