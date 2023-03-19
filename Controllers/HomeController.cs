@@ -31,6 +31,13 @@ namespace FreshBooks.Controllers
             var firstThree = shuffledBooks.Take(3);
             return View(firstThree);
         }
+        //Get: Books Detail
+
+        public async Task<IActionResult> Details(int id)
+        {
+            var booksDetail = await _service.GetBookAsync(id);
+            return View(booksDetail);
+        }
 
         [HttpGet("SignUp")]
         public IActionResult SignUp()
