@@ -74,5 +74,12 @@ namespace FreshBooks.Controllers
 
             return View("SuccessSignUp");
         }
+
+        [HttpPost]
+        public async Task<IActionResult> Logout()
+        {
+            await _signInManager.SignOutAsync();
+            return RedirectToAction("Home","Home");
+        }
     }
 }
