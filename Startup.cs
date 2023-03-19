@@ -79,6 +79,23 @@ namespace FreshBook
             AppDbInitializer.SeedUsersAndRolesAsync(app).Wait();
 
         }
+
+        public class StartupEmail
+        {
+            // ...
+            public IConfiguration Configuration { get; }
+
+            public StartupEmail(IConfiguration configuration)
+            {
+                Configuration = configuration;
+            }
+
+            public void ConfigureServices(IServiceCollection services)
+            {
+                services.Configure<SmtpConfig>(Configuration.GetSection("SmtpConfig"));
+            }
+        }
+
     }
 }
 
