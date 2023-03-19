@@ -27,7 +27,11 @@ namespace FreshBooks.Models
 
         [Display(Name = "Author Name")]
         [Required(ErrorMessage = "Please Input Author")]
-        public List<int> AuthorIds { get; set; }
+        public string Author { get; set; }
+
+        [Display(Name = "Subject")]
+        [Required(ErrorMessage = "Please Input Subject")]
+        public string Subject { get; set; }
 
     }
 }

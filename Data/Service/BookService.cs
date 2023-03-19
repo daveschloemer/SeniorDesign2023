@@ -15,8 +15,9 @@ namespace FreshBooks.Data.Service
 
         public async Task<Book> GetBookAsync(int id)
         {
-            var bookDetails =await _context.Book.Include(a => a.Author_Books).ThenInclude(b => b.Author)
-                .FirstOrDefaultAsync(c => c.Id == id);
+            var bookDetails = await _context.Book.FirstOrDefaultAsync(c => c.Id == id);
+/*                .Include(a => a.Author_Books).ThenInclude(b => b.Author)
+                .FirstOrDefaultAsync(c => c.Id == id);*/
             return bookDetails;
         }
 
@@ -28,7 +29,9 @@ namespace FreshBooks.Data.Service
                 Edition = data.Edition,
                 ISBN = data.ISBN,
                 imagesURL = data.imagesURL,
-                Price = data.Price
+                Price = data.Price,
+                Author = data.Author,
+                Subject = data.Subject
             };
             await _context.Book.AddAsync(newBook);
             await _context.SaveChangesAsync();
