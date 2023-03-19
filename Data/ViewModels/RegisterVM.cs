@@ -11,6 +11,7 @@ namespace FreshBooks.Data.ViewModels
 
         [Display(Name = "Email Address")]
         [Required(ErrorMessage = "Email Address is Required")]
+        [RegularExpression(@"^[a-zA-Z0-9._%+-]+@mail\.uc\.edu$", ErrorMessage = "Please enter a valid email address on the mail.uc.edu domain.")]
         public string EmailAddress { get; set; }
   
         [Required]
