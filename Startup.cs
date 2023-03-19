@@ -4,10 +4,13 @@ using System.Linq;
 using System.Threading.Tasks;
 using FreshBooks.Data;
 using FreshBooks.Data.Service;
+using FreshBooks.Models;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
@@ -33,6 +36,15 @@ namespace FreshBook
 
 
             services.AddControllersWithViews();
+
+            //Authentication and Authorization
+            services.AddIdentity<ApplicationUser,IdentityRole>().AddEntityFrameworkStores<BookDbContext>();
+            services.AddMemoryCache();
+            services.AddSession();
+            services.AddAuthentication(options =>
+            {
+                options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+            });
         }
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
@@ -48,6 +60,9 @@ namespace FreshBook
             app.UseStaticFiles();
 
             app.UseRouting();
+            app.UseSession();
+
+            //Authentication and Authorization
             app.UseAuthentication();
             app.UseAuthorization();
 
@@ -61,6 +76,7 @@ namespace FreshBook
 
             //Seed database
             AppDbInitializer.Seed(app);
+            AppDbInitializer.SeedUsersAndRolesAsync(app).Wait();
 
         }
     }
