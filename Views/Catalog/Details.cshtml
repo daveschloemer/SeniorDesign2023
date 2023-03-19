@@ -22,9 +22,16 @@
                 <p class="text-primary h4">@Model.Price</p>
             </div>
             <div>
-                <a href="/OrderForm">
-                    <button type="button" class="btn btn-success btn-lg">Contact Seller</button>
-                </a>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <a href="/OrderForm">
+                        <button type="button" class="btn btn-success btn-lg">Contact Seller</button>
+                    </a>
+                }
+                else
+                {
+                    <a type="button" class="btn btn-success btn-lg" asp-controller="Account" asp-action="Login">Login to Contact Seller</a>
+                }
             </div>
         </div>
     </div>
