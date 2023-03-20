@@ -3,7 +3,7 @@
 @{
     ViewData["Title"] = "List your book below";
 }
-
+@inject UserManager<ApplicationUser> UserManager;
 <div class="row">
     <div class="col-md-8 offset-2">
 
@@ -17,7 +17,7 @@
 
                                 <div class="form-group">
                                     <label asp-for="Email" class="control-label"></label>
-                                    <input asp-for="Email" class="form-control"/>
+                                    <p>@UserManager.GetUserAsync(User).Result.Email</p>
                                     <span asp-validation-for="Title" class="text-danger"></span>
                                 </div>
 
@@ -89,19 +89,17 @@
 
 
                     </form>
-                    </div>
                 </div>
             </div>
+        </div>
 
     </div>
 
 </div>
 
 @section Scripts{
-    <script>
-        $("#imagesURL").on("change", function () {
+    <script>$("#imagesURL").on("change", function () {
             var output = document.getElementById("imageURlPreview");
             output.src = $(this).val();
-        })
-    </script>
+        })</script>
 }
