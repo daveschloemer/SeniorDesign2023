@@ -60,7 +60,7 @@ namespace FreshBooks.Migrations
                     Edition = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Title = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ISBN = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Price = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Price = table.Column<double>(type: "float", nullable: false),
                     Author = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Subject = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     imagesURL = table.Column<string>(type: "nvarchar(max)", nullable: false)
@@ -76,7 +76,8 @@ namespace FreshBooks.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Amount = table.Column<int>(type: "int", nullable: false)
+                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    UserID = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -190,12 +191,34 @@ namespace FreshBooks.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "ListedTabItems",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    BookId = table.Column<int>(type: "int", nullable: false),
+                    Amount = table.Column<int>(type: "int", nullable: false),
+                    ListedTabId = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ListedTabItems", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_ListedTabItems_Book_BookId",
+                        column: x => x.BookId,
+                        principalTable: "Book",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "ListedItems",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Amount = table.Column<int>(type: "int", nullable: false),
+                    Prices = table.Column<double>(type: "float", nullable: false),
                     BookId = table.Column<int>(type: "int", nullable: false),
                     ListedId = table.Column<int>(type: "int", nullable: false)
                 },
@@ -264,6 +287,11 @@ namespace FreshBooks.Migrations
                 name: "IX_ListedItems_ListedId",
                 table: "ListedItems",
                 column: "ListedId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ListedTabItems_BookId",
+                table: "ListedTabItems",
+                column: "BookId");
         }
 
         /// <inheritdoc />
@@ -288,16 +316,19 @@ namespace FreshBooks.Migrations
                 name: "ListedItems");
 
             migrationBuilder.DropTable(
+                name: "ListedTabItems");
+
+            migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
 
             migrationBuilder.DropTable(
-                name: "Book");
+                name: "Listeds");
 
             migrationBuilder.DropTable(
-                name: "Listeds");
+                name: "Book");
         }
     }
 }
