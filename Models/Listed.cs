@@ -8,7 +8,9 @@ namespace FreshBooks.Models
         [Key]
         public int Id { get; set; }
 
-        public int Amount { get; set; }
+        public string Email { get; set; }
+
+        public string UserID { get; set; }
 
 
         public List<ListedItem> ListedItems { get; set; }
