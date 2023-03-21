@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FreshBooks.Migrations
 {
     [DbContext(typeof(BookDbContext))]
-    [Migration("20230321051735_User")]
-    partial class User
+    [Migration("20230321054729_Initial")]
+    partial class Initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -106,6 +106,9 @@ namespace FreshBooks.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("BookUserId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Edition")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -126,16 +129,13 @@ namespace FreshBooks.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
                     b.Property<string>("imagesURL")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("UserId");
+                    b.HasIndex("BookUserId");
 
                     b.ToTable("Book");
                 });
@@ -298,7 +298,7 @@ namespace FreshBooks.Migrations
                 {
                     b.HasOne("FreshBooks.Models.BookUser", "BookUser")
                         .WithMany("Books")
-                        .HasForeignKey("UserId")
+                        .HasForeignKey("BookUserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
