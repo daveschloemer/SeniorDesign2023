@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FreshBooks.Migrations
 {
     [DbContext(typeof(BookDbContext))]
-    [Migration("20230319201116_Initial")]
+    [Migration("20230321050444_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
