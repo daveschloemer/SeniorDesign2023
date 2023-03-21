@@ -26,11 +26,10 @@ namespace FreshBooks.Data
 
 /*        public DbSet<Author> Author { get; set; }
 */        public DbSet<Book> Book { get; set; }
+          public DbSet<BookUser> BookUser { get; set; }
 /*        public DbSet<Author_Books> Author_Books { get; set; }
 */    
-        //Listed Book
 
-        public DbSet<Listed> Listeds { get; set; }
-        public DbSet<ListedItem> ListedItems { get; set; }
+
     }
 }
