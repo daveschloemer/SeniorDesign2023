@@ -21,7 +21,7 @@ namespace FreshBooks.Models
 
         [Display(Name = "Book Price")]
         [Required(ErrorMessage = "Please Input Price")]
-        public string Price { get; set; }
+        public double Price { get; set; }
 
         [Display(Name = "ImagesURL")]
         [Required(ErrorMessage = "Please Input imagesURL")]

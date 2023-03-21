@@ -12,7 +12,7 @@ namespace FreshBooks.Models
         public string Edition { get; set; }
         public string Title { get; set; }
         public string ISBN { get; set; }
-        public string Price { get; set; }
+        public double Price { get; set; }
         public string Author { get; set; }
         public string Subject { get; set; }
         public string imagesURL { get; set; }

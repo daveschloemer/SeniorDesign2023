@@ -32,5 +32,7 @@ namespace FreshBooks.Data
 
         public DbSet<Listed> Listeds { get; set; }
         public DbSet<ListedItem> ListedItems { get; set; }
+
+        public DbSet<ListedTabItem> ListedTabItems { get; set; }
     }
 }

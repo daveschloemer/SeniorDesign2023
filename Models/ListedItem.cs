@@ -10,6 +10,8 @@ namespace FreshBooks.Models
 
         public int Amount { get; set; }
 
+        public double Prices { get; set; }
+
         public int BookId { get; set; }
         [ForeignKey("BookId")]
         public Book Book { get; set; }
