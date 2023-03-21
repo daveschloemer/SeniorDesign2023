@@ -24,12 +24,14 @@
 
     @foreach (var item in Model)
     {
-        <div class="col-md-4">
-            <div class="card mb-3">
+        <div class="col-md-4 mb-4">
+            <div class="card mb-3 h-100" style="max-width: 350px;">
                 <img class="card-img-top mx-auto d-block" src="@Html.DisplayFor(Model => item.imagesURL)" alt="Book image" style="object-fit: cover; height: 200px; width: 200px;">
                 <div class="card-body">
-                    <h4 class="card-title font-weight-bold">@Html.DisplayFor(Model => item.Title)</h4>
-                    <ul class="list-group list-group-flush">
+                    <div>
+                        <h5 class="card-title font-weight-bold">@Html.DisplayFor(Model => item.Title)</h5>
+                    </div>
+                    <ul class="list-group list-group-flush py-0">
                         <li class="list-group-item">
                             <span class="font-weight-bold">@Html.DisplayNameFor(model => model.ISBN): </span>
                             @if (item.ISBN is null)
@@ -57,11 +59,12 @@
                         </li>
                         <li class="list-group-item">
                             <span class="font-weight-bold">@Html.DisplayNameFor(model => model.Price): </span>
-                            <span>@Html.DisplayFor(Model => item.Price)</span>
+                            <span>$@Html.DisplayFor(Model => item.Price)</span>
                         </li>
                     </ul>
-                    <div class="card-footer">
-
+                </div>
+                <div class="card-footer">
+                    <div class="card-body-footer">
                         @if (User.Identity.IsAuthenticated)
                         {
                             <a type="button" href="@Url.Action("Details", new { id = item.Id })" class="btn btn-info">Show Detail</a>
