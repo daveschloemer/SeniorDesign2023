@@ -1,0 +1,100 @@
+﻿@model IEnumerable<FreshBooks.Models.Book>
+@inject UserManager<ApplicationUser> UserManager;
+@using Microsoft.AspNetCore.Identity;
+@{
+    ViewBag.Title = @UserManager.GetUserAsync(User).Result.FullName + "Profile";
+}
+<style>
+    .btn-centered {
+        display: block;
+        margin: 0 auto;
+    }
+</style>
+<br />
+<br />
+<div class="row">
+    <div class="container mt-0 my-5 text-center">
+        <form class="form-inline mx-auto" action="@Url.Action("Filter", "Catalog")" method="get">
+            <div class="container text-center">
+                @Html.TextBox("searchString", null, new { @class = "form-control mr-sm-2 w-75", @placeholder = "Search", @aria_label = "Search" })
+                <input class="btn btn-success my-2 my-sm-0" type="submit" value="Search" />
+            </div>
+        </form>
+    </div>
+
+    @foreach (var item in Model)
+    {
+        <div class="col-md-4 mb-4">
+            <div class="card mb-3 h-100" style="max-width: 350px;">
+                <img class="card-img-top mx-auto d-block" src="@Html.DisplayFor(Model => item.imagesURL)" alt="Book image" style="object-fit: cover; height: 200px; width: 200px;">
+                <div class="card-body">
+                    <div>
+                        <h5 class="card-title font-weight-bold">@Html.DisplayFor(Model => item.Title)</h5>
+                    </div>
+                    <ul class="list-group list-group-flush py-0">
+                        <li class="list-group-item">
+                            <span class="font-weight-bold">@Html.DisplayNameFor(model => model.ISBN): </span>
+                            @if (item.ISBN is null)
+                            {
+                                <span>Test</span>
+                                ;
+                            }
+                            else
+                            {
+                                <span>@Html.DisplayFor(Model => item.ISBN)</span>
+                                ;
+                            }
+                        </li>
+                        <li class="list-group-item">
+                            <span class="font-weight-bold">@Html.DisplayNameFor(model => model.Author): </span>
+                            <span>@Html.DisplayFor(Model => item.Author)</span>
+                        </li>
+                        <li class="list-group-item">
+                            <span class="font-weight-bold">@Html.DisplayNameFor(model => model.Subject): </span>
+                            <span>@Html.DisplayFor(Model => item.Subject)</span>
+                        </li>
+                        <li class="list-group-item">
+                            <span class="font-weight-bold">@Html.DisplayNameFor(model => model.Edition): </span>
+                            <span>@Html.DisplayFor(Model => item.Edition)</span>
+                        </li>
+                        <li class="list-group-item">
+                            <span class="font-weight-bold">@Html.DisplayNameFor(model => model.Price): </span>
+                            <span>$@Html.DisplayFor(Model => item.Price)</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="card-footer">
+                    <div class="card-body-footer">
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <a type="button" href="@Url.Action("Details", new { id = item.Id })" class="btn btn-info">Show Detail</a>
+                            <a href="/OrderForm">
+                                <button type="button" id="contactSeller" class="btn btn-success float-right" data-toggle="collapse" data-target="#contactform3">Contact Seller</button>
+                            </a>
+                        }
+                        else
+                        {
+                            <a type="button" href="@Url.Action("Details", new { id = item.Id })" class="btn btn-info btn-centered">Show Detail</a>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+<script>var search = document.getElementById("searchTxt").value;
+    if (search == C#)
+    {
+        document.getElementById("ItDummies").
+            document.getElementById("Networking").hidden;
+    };
+            else if (search == networking) {
+        document.getElementById("ItDummies").hidden;
+        document.getElementById("C#").hidden;
+    };
+            else ()
+            {
+        document.getElementById("C#").hidden;
+        document.getElementById("Networking").hidden;
+    };</script>
