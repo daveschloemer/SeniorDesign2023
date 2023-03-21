@@ -17,8 +17,8 @@ namespace FreshBooks.Models
         public string Subject { get; set; }
         public string imagesURL { get; set; }
 
-        public int UserId { get; set; }
-        [ForeignKey("UserId")]
+        public int BookUserId { get; set; }
+        [ForeignKey("BookUserId")]
         public BookUser BookUser { get; set; }
 
         /*        public List<Author_Books> Author_Books { get; set; }

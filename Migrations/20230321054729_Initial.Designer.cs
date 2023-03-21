@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FreshBooks.Migrations
 {
     [DbContext(typeof(BookDbContext))]
-    [Migration("20230321050444_Initial")]
+    [Migration("20230321054729_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -106,6 +106,9 @@ namespace FreshBooks.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("BookUserId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Edition")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -132,10 +135,12 @@ namespace FreshBooks.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("BookUserId");
+
                     b.ToTable("Book");
                 });
 
-            modelBuilder.Entity("FreshBooks.Models.Listed", b =>
+            modelBuilder.Entity("FreshBooks.Models.BookUser", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -143,38 +148,17 @@ namespace FreshBooks.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("Amount")
-                        .HasColumnType("int");
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Listeds");
-                });
-
-            modelBuilder.Entity("FreshBooks.Models.ListedItem", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("Amount")
-                        .HasColumnType("int");
-
-                    b.Property<int>("BookId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ListedId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("BookId");
-
-                    b.HasIndex("ListedId");
-
-                    b.ToTable("ListedItems");
+                    b.ToTable("BookUser");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -310,23 +294,15 @@ namespace FreshBooks.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("FreshBooks.Models.ListedItem", b =>
+            modelBuilder.Entity("FreshBooks.Models.Book", b =>
                 {
-                    b.HasOne("FreshBooks.Models.Book", "Book")
-                        .WithMany()
-                        .HasForeignKey("BookId")
+                    b.HasOne("FreshBooks.Models.BookUser", "BookUser")
+                        .WithMany("Books")
+                        .HasForeignKey("BookUserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("FreshBooks.Models.Listed", "Listed")
-                        .WithMany("ListedItems")
-                        .HasForeignKey("ListedId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Book");
-
-                    b.Navigation("Listed");
+                    b.Navigation("BookUser");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -380,9 +356,9 @@ namespace FreshBooks.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("FreshBooks.Models.Listed", b =>
+            modelBuilder.Entity("FreshBooks.Models.BookUser", b =>
                 {
-                    b.Navigation("ListedItems");
+                    b.Navigation("Books");
                 });
 #pragma warning restore 612, 618
         }

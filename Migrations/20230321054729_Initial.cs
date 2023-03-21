@@ -52,35 +52,17 @@ namespace FreshBooks.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Book",
+                name: "BookUser",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Edition = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Title = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ISBN = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Price = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Author = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Subject = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    imagesURL = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    UserId = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Book", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Listeds",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Amount = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Listeds", x => x.Id);
+                    table.PrimaryKey("PK_BookUser", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -190,28 +172,27 @@ namespace FreshBooks.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "ListedItems",
+                name: "Book",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Amount = table.Column<int>(type: "int", nullable: false),
-                    BookId = table.Column<int>(type: "int", nullable: false),
-                    ListedId = table.Column<int>(type: "int", nullable: false)
+                    Edition = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Title = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ISBN = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Price = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Author = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Subject = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    imagesURL = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    BookUserId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ListedItems", x => x.Id);
+                    table.PrimaryKey("PK_Book", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_ListedItems_Book_BookId",
-                        column: x => x.BookId,
-                        principalTable: "Book",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_ListedItems_Listeds_ListedId",
-                        column: x => x.ListedId,
-                        principalTable: "Listeds",
+                        name: "FK_Book_BookUser_BookUserId",
+                        column: x => x.BookUserId,
+                        principalTable: "BookUser",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -256,14 +237,9 @@ namespace FreshBooks.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ListedItems_BookId",
-                table: "ListedItems",
-                column: "BookId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_ListedItems_ListedId",
-                table: "ListedItems",
-                column: "ListedId");
+                name: "IX_Book_BookUserId",
+                table: "Book",
+                column: "BookUserId");
         }
 
         /// <inheritdoc />
@@ -285,7 +261,7 @@ namespace FreshBooks.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "ListedItems");
+                name: "Book");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
@@ -294,10 +270,7 @@ namespace FreshBooks.Migrations
                 name: "AspNetUsers");
 
             migrationBuilder.DropTable(
-                name: "Book");
-
-            migrationBuilder.DropTable(
-                name: "Listeds");
+                name: "BookUser");
         }
     }
 }
