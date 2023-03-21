@@ -35,41 +35,44 @@
                         <i class="fas fa-gem me-3"></i>FreshBook
                     </h6>
                 </div>
-                <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-                    <h6 class="text-uppercase fw-bold mb-4">
-                        Profile
-                    </h6>
-                    <p>
-                        <a href="#!" class="text-reset">Settings</a>
-                    </p>
-                    @*<p>
-                        <a href="#!" class="text-reset">Orders</a>
-                    </p>*@
-                    <p>
-                        <a href="#!" class="text-reset">Help</a>
-                    </p>
-                </div>
-                <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-                    <h6 class="text-uppercase fw-bold mb-4">
-                        Useful links
-                    </h6>
-                    <p>
-                        <a href="#!" class="text-reset">Privacy Policy</a>
-                    </p>
-                    <p>
-                        <a asp-controller="Home" asp-action="TOS" class="text-reset">Terms of Service</a>
-                    </p>
-                    <p>
-                        <a asp-controller="Home" asp-action="About" class="text-reset">About Us</a>
-                    </p>
-                    @if (User.Identity.IsAuthenticated)
-                        {
+                @if (User.Identity.IsAuthenticated)
+                    {
+                    <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                        <h6 class="text-uppercase fw-bold mb-4">
+                            Profile
+                        </h6>
                         <p>
-                            <a asp-controller="Home" asp-action="Contact" class="text-reset">Contact Us</a>
+                            <a href="#!" class="text-reset">Settings</a>
                         </p>
+                        @*<p>
+                    <a href="#!" class="text-reset">Orders</a>
+                </p>*@
+                        <p>
+                            <a href="#!" class="text-reset">Help</a>
+                        </p>
+                    </div>
+                    }
+                    <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                        <h6 class="text-uppercase fw-bold mb-4">
+                            Useful links
+                        </h6>
+                        <p>
+                            <a asp-controller="Home" asp-action="PrivacyPolicy" class="text-reset">Privacy Policy</a>
+                        </p>
+                        <p>
+                            <a asp-controller="Home" asp-action="TOS" class="text-reset">Terms of Service</a>
+                        </p>
+                        <p>
+                            <a asp-controller="Home" asp-action="About" class="text-reset">About Us</a>
+                        </p>
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <p>
+                                <a asp-controller="Home" asp-action="Contact" class="text-reset">Contact Us</a>
+                            </p>
                         }
+                    </div>
                 </div>
-            </div>
         </div>
     </section>
     <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
