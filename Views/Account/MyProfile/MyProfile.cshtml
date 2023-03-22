@@ -2,7 +2,7 @@
 @inject UserManager<ApplicationUser> UserManager;
 @using Microsoft.AspNetCore.Identity;
 @{
-    ViewBag.Title = "Catalog";
+    ViewBag.Title = @UserManager.GetUserAsync(User).Result.FullName + "Profile";
 }
 <style>
     .btn-centered {
@@ -61,10 +61,6 @@
                             <span class="font-weight-bold">@Html.DisplayNameFor(model => model.Price): </span>
                             <span>$@Html.DisplayFor(Model => item.Price)</span>
                         </li>
-                        <li class="list-group-item">
-                            <span class="font-weight-bold">Sold by: </span>
-                            <span>@Html.DisplayFor(Model => item.UserName)</span>
-                        </li>
                     </ul>
                 </div>
                 <div class="card-footer">
@@ -87,8 +83,7 @@
     }
 </div>
 
-<script>
-    var search = document.getElementById("searchTxt").value;
+<script>var search = document.getElementById("searchTxt").value;
     if (search == C#)
     {
         document.getElementById("ItDummies").
@@ -102,5 +97,4 @@
             {
         document.getElementById("C#").hidden;
         document.getElementById("Networking").hidden;
-    };
-</script>
+    };</script>
