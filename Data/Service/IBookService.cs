@@ -7,8 +7,10 @@ namespace FreshBooks.Data.Service
     {
         Task<Book> GetBookAsync(int id);
 
+        Task DeleteBookAsync(int id);
         Task AddNewBookAsync(NewBookVM data, string userId, string userEmail, string userName);
 
         Task<List<Book>> GetBooksByUserIdAsync(string userId);
+
     }
 }

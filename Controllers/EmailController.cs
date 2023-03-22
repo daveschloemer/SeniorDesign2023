@@ -1,4 +1,5 @@
-﻿using FreshBooks.Data.Service.EmailService;
+﻿using FreshBooks.Data.Service;
+using FreshBooks.Data.Service.EmailService;
 using FreshBooks.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -10,19 +11,22 @@ namespace FreshBooks.Controllers
     public class EmailController : ControllerBase
     {
         private readonly IEmailService emailService;
+        private readonly IBookService _bookService;
         public EmailController(IEmailService emailService)
         {
             this.emailService = emailService;
         }
 
         [HttpPost]
-        public IActionResult SendEmail([FromForm] OrderViewModel orderInformation)
+        public async Task<IActionResult> SendEmail([FromForm] OrderViewModel orderInformation)
         {
             // get the book id from the request, look up book by the book id
             // get the seller from the book, pull seller's email, and use it as request.To = seller email
-
+            var email = await _bookService.GetBookAsync(1);
+            var e = email.Email;
             var request = new EmailDto();
-            request.To = orderInformation.Email;
+            request.To = e;
+            request.From = orderInformation.Email;
             request.Subject = $"Buyer Interest - {orderInformation.Name} - {orderInformation.Number}";
             request.Body = "Book looks cool, I want it";
 
