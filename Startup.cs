@@ -4,11 +4,14 @@ using System.Linq;
 using System.Threading.Tasks;
 using FreshBooks.Data;
 using FreshBooks.Data.Service;
-using FreshBooks.Services.EmailService;
+using FreshBooks.Data.Service.EmailService;
+using FreshBooks.Models;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
@@ -34,6 +37,15 @@ namespace FreshBook
             services.AddScoped<IEmailService, EmailService>();
 
             services.AddControllersWithViews();
+
+            //Authentication and Authorization
+            services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<BookDbContext>();
+            services.AddMemoryCache();
+            services.AddSession();
+            services.AddAuthentication(options =>
+            {
+                options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+            });
         }
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {

@@ -1,5 +1,5 @@
-﻿using FreshBooks.Models;
-using FreshBooks.Services.EmailService;
+﻿using FreshBooks.Data.Service.EmailService;
+using FreshBooks.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 

@@ -3,7 +3,7 @@ using MailKit.Security;
 using MimeKit;
 using MimeKit.Text;
 
-namespace FreshBooks.Services.EmailService
+namespace FreshBooks.Data.Service.EmailService
 {
     public class EmailService : IEmailService
     {
@@ -12,7 +12,7 @@ namespace FreshBooks.Services.EmailService
         {
             _config = config;
         }
-        public void SendEmail(EmailDto request) 
+        public void SendEmail(EmailDto request)
         {
             var email = new MimeMessage();
             email.From.Add(MailboxAddress.Parse(_config.GetSection("EmailUserName").Value));
