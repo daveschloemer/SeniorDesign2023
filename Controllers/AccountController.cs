@@ -15,7 +15,7 @@ namespace FreshBooks.Controllers
         public AccountController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, BookDbContext context)
         {
             _userManager = userManager;
-            _signInManager = signInManager; 
+            _signInManager = signInManager;
             _context = context;
         }
 
@@ -24,12 +24,12 @@ namespace FreshBooks.Controllers
         [HttpPost]
         public async Task<IActionResult> Login(LoginVM loginVM)
         {
-            if(!ModelState.IsValid) return View(loginVM);
+            if (!ModelState.IsValid) return View(loginVM);
 
             var user = await _userManager.FindByEmailAsync(loginVM.EmailAddress);
-            if(user != null)
+            if (user != null)
             {
-                var passwordCheck = await _userManager.CheckPasswordAsync(user,loginVM.Password);
+                var passwordCheck = await _userManager.CheckPasswordAsync(user, loginVM.Password);
                 if (passwordCheck)
                 {
                     var result = await _signInManager.PasswordSignInAsync(user, loginVM.Password, false, false);
@@ -79,7 +79,7 @@ namespace FreshBooks.Controllers
         public async Task<IActionResult> Logout()
         {
             await _signInManager.SignOutAsync();
-            return RedirectToAction("Home","Home");
+            return RedirectToAction("Home", "Home");
         }
     }
 }

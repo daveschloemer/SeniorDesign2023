@@ -61,6 +61,9 @@ namespace FreshBook
             app.UseStaticFiles();
 
             app.UseRouting();
+            app.UseSession();
+
+
             app.UseAuthorization();
             app.UseAuthorization();
 
@@ -77,3 +80,5 @@ namespace FreshBook
         }
     }
 }
+
+//            services.AddScoped<IEmailService, EmailService>();
