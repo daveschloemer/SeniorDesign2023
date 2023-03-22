@@ -12,7 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FreshBooks.Migrations
 {
     [DbContext(typeof(BookDbContext))]
+<<<<<<<< HEAD:Migrations/20230321232132_Initial.Designer.cs
     [Migration("20230321232132_Initial")]
+========
+    [Migration("20230320232417_Initial")]
+>>>>>>>> David-Dev-Backup:Migrations/20230320232417_Initial.Designer.cs
     partial class Initial
     {
         /// <inheritdoc />
@@ -117,9 +121,8 @@ namespace FreshBooks.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Price")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<double>("Price")
+                        .HasColumnType("float");
 
                     b.Property<string>("Subject")
                         .IsRequired()
@@ -152,15 +155,76 @@ namespace FreshBooks.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+<<<<<<<< HEAD:Migrations/20230321232132_Initial.Designer.cs
                     b.Property<string>("UserId")
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
+========
+                    b.Property<string>("UserID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+>>>>>>>> David-Dev-Backup:Migrations/20230320232417_Initial.Designer.cs
 
                     b.HasKey("Id");
 
                     b.HasIndex("UserId");
 
+<<<<<<<< HEAD:Migrations/20230321232132_Initial.Designer.cs
                     b.ToTable("BookUser");
+========
+            modelBuilder.Entity("FreshBooks.Models.ListedItem", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("Amount")
+                        .HasColumnType("int");
+
+                    b.Property<int>("BookId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ListedId")
+                        .HasColumnType("int");
+
+                    b.Property<double>("Prices")
+                        .HasColumnType("float");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("BookId");
+
+                    b.HasIndex("ListedId");
+
+                    b.ToTable("ListedItems");
+>>>>>>>> David-Dev-Backup:Migrations/20230320232417_Initial.Designer.cs
+                });
+
+            modelBuilder.Entity("FreshBooks.Models.ListedTabItem", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("Amount")
+                        .HasColumnType("int");
+
+                    b.Property<int>("BookId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ListedTabId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("BookId");
+
+                    b.ToTable("ListedTabItems");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -316,6 +380,17 @@ namespace FreshBooks.Migrations
                         .IsRequired();
 
                     b.Navigation("User");
+                });
+
+            modelBuilder.Entity("FreshBooks.Models.ListedTabItem", b =>
+                {
+                    b.HasOne("FreshBooks.Models.Book", "Book")
+                        .WithMany()
+                        .HasForeignKey("BookId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Book");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
