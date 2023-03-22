@@ -62,7 +62,8 @@ namespace FreshBooks.Controllers
 
             string userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
             string userEmail = User.FindFirstValue(ClaimTypes.Email);
-            await _service.AddNewBookAsync(book, userId, userEmail);
+            string userName = User.FindFirstValue(ClaimTypes.Name);
+            await _service.AddNewBookAsync(book, userId, userEmail, userName);
 
             return RedirectToAction(nameof(Catalog));
         }

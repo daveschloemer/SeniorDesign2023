@@ -19,7 +19,7 @@ namespace FreshBooks.Data.Service
             return bookDetails;
         }
 
-        public async Task AddNewBookAsync(NewBookVM data, string userId, string userEmail)
+        public async Task AddNewBookAsync(NewBookVM data, string userId, string userEmail, string userName)
         {
 
             var newBook = new Book()
@@ -31,7 +31,9 @@ namespace FreshBooks.Data.Service
                 Price = data.Price,
                 Author = data.Author,
                 Subject = data.Subject,
-                UserId = userId
+                UserId = userId,
+                Email = userEmail,
+                UserName = userName
             };
             await _context.Book.AddAsync(newBook);
             await _context.SaveChangesAsync();

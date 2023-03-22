@@ -23,6 +23,7 @@ namespace FreshBooks.Models
         public ApplicationUser User { get; set; }
 
         public string Email { get; set; }
+        public string UserName { get; set; }
 /*        public int BookUserId { get; set; }
         [ForeignKey("BookUserId")]
         public BookUser BookUser { get; set; }*/
