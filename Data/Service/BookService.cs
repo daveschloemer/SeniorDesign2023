@@ -45,5 +45,15 @@ namespace FreshBooks.Data.Service
             var sellBook = await _context.Book.Where(n => n.UserId == userId).ToListAsync();
             return sellBook;
         }
+        public async Task DeleteBookAsync(int id)
+        {
+            var deletebook = await _context.Book.FindAsync(id);
+
+            if (deletebook != null)
+            {
+                _context.Book.Remove(deletebook);
+                await _context.SaveChangesAsync();
+            }
+        }
     }
 }
