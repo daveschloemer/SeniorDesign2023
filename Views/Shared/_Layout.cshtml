@@ -8,15 +8,21 @@
     <link href="~/lib/fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet" />
     <link href="~/css/site.css" rel="stylesheet" />
 </head>
-<body>
+<body class="vh-100">
     <header class="container">
         <nav class="navbar navbar-dark bg-dark navbar-expand-md">
-            <h1 class="navbar-brand"><i class="fas fa-book"></i>  Welcome to Freshbooks</h1>
-            <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#theMenu">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div id="theMenu" class="navbar-collapse collapse">
-                <partial name="_Identity.cshtml" />
+            <div class="container-fluid">
+                <div class="logo">
+                    <img src="~/img/logo.png" class="img-fluid" alt="Logo" style="max-width: 50%;">
+                </div>
+                <div class="menu-items">
+                    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#theMenu">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div id="theMenu" class="collapse navbar-collapse ms-auto me-0">
+                        <partial name="_Identity.cshtml" />
+                    </div>
+                </div>
             </div>
         </nav>
     </header>
@@ -26,126 +32,61 @@
         @RenderBody()
     </section>
 
-
-<footer class="navbar fixed-bottom">
-  <div class="container text-center">
-    Copyright 2022 FreshBooks
-  </div>
-</footer>
-@*    <footer class="text-center text-lg-start bg-light text-muted">
-        <!-- Section: Social media -->
-        <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
-            <!-- Left -->
-            <div class="me-5 d-none d-lg-block">
-                <span>Get connected with us on social networks:</span>
-            </div>
-            <!-- Left -->
-            <!-- Right -->
-            <div>
-                <a href="" class="me-4 text-reset">
-                    <i class="fab fa-facebook-f"></i>
-                </a>
-                <a href="" class="me-4 text-reset">
-                    <i class="fab fa-twitter"></i>
-                </a>
-                <a href="" class="me-4 text-reset">
-                    <i class="fab fa-google"></i>
-                </a>
-                <a href="" class="me-4 text-reset">
-                    <i class="fab fa-instagram"></i>
-                </a>
-                <a href="" class="me-4 text-reset">
-                    <i class="fab fa-linkedin"></i>
-                </a>
-                <a href="" class="me-4 text-reset">
-                    <i class="fab fa-github"></i>
-                </a>
-            </div>
-            <!-- Right -->
-        </section>
-        <!-- Section: Social media -->
-        <!-- Section: Links  -->
-        <section class="">
-            <div class="container text-center text-md-start mt-5">
-                <!-- Grid row -->
-                <div class="row mt-3">
-                    <!-- Grid column -->
-                    <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-                        <!-- Content -->
-                        <h6 class="text-uppercase fw-bold mb-4">
-                            <i class="fas fa-gem me-3"></i>FreshBook
-                        </h6>
-                        <p>
-                            Sell your books using freshbook
-                        </p>
-                    </div>
-                    <!-- Grid column -->
-                    <!-- Grid column -->
+<footer class="text-center text-lg-start bg-light text-muted">
+    <section class="">
+        <div class="container text-center text-md-start mt-5">
+            <div class="row mt-3">
+                <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                    <h6 class="text-uppercase fw-bold mb-4">
+                        <i class="fas fa-gem me-3"></i>FreshBook
+                    </h6>
+                </div>
+                @if (User.Identity.IsAuthenticated)
+                    {
                     <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-                        <!-- Links -->
                         <h6 class="text-uppercase fw-bold mb-4">
                             Profile
                         </h6>
                         <p>
-                            <a href="#!" class="text-reset">Pricing</a>
-                        </p>
-                        <p>
                             <a href="#!" class="text-reset">Settings</a>
                         </p>
-                        <p>
-                            <a href="#!" class="text-reset">Orders</a>
-                        </p>
+                        @*<p>
+                    <a href="#!" class="text-reset">Orders</a>
+                </p>*@
                         <p>
                             <a href="#!" class="text-reset">Help</a>
                         </p>
                     </div>
-                    <!-- Grid column -->
-                    <!-- Grid column -->
+                    }
                     <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-                        <!-- Links -->
                         <h6 class="text-uppercase fw-bold mb-4">
                             Useful links
                         </h6>
                         <p>
-                            <a href="#!" class="text-reset">Privacy Policy</a>
+                            <a asp-controller="Home" asp-action="PrivacyPolicy" class="text-reset">Privacy Policy</a>
                         </p>
                         <p>
-                            <a href="#!" class="text-reset">Terms of Service</a>
+                            <a asp-controller="Home" asp-action="TOS" class="text-reset">Terms of Service</a>
                         </p>
                         <p>
-                            <a href="#!" class="text-reset">About Us</a>
+                            <a asp-controller="Home" asp-action="About" class="text-reset">About Us</a>
                         </p>
-                        <p>
-                            <a href="#!" class="text-reset">Contact Us</a>
-                        </p>
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <p>
+                                <a asp-controller="Home" asp-action="Contact" class="text-reset">Contact Us</a>
+                            </p>
+                        }
                     </div>
-                    <!-- Grid column -->
-                    <!-- Grid column -->
-                    <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-                        <!-- Links -->
-                        <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
-                        <p><i class="fas fa-home me-3"></i> Cincinnati, OH 45210, US</p>
-                        <p>
-                            <i class="fas fa-envelope me-3"></i>
-                            help@freshbooks.com
-                        </p>
-                        <p><i class="fas fa-phone me-3"></i> + 01 513 225 8898</p>
-                        <p><i class="fas fa-print me-3"></i> + 01 513 225 8888</p>
-                    </div>
-                    <!-- Grid column -->
                 </div>
-                <!-- Grid row -->
-            </div>
-        </section>
-        <!-- Section: Links  -->
-        <!-- Copyright -->
-        <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
-            © 2022 Copyright:
-            <a class="text-reset fw-bold" href="https://mdbootstrap.com/">FreshBooks.com</a>
         </div>
-        <!-- Copyright -->
-    </footer>*@
-
+    </section>
+    <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+        © 2022 Copyright:
+        <a class="text-reset fw-bold" href="">FreshBooks.com</a>
+    </div>
+    <!-- Copyright -->
+</footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -168,4 +109,3 @@
     @RenderSection("Scripts", false)
 </body>
 </html>
-
