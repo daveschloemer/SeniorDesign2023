@@ -57,6 +57,12 @@ namespace FreshBooks.Controllers
             return View();
         }
         [HttpPost]
+        public async Task<IActionResult> Delete(int id)
+        {
+            await _service.DeleteBookAsync(id);
+            return RedirectToAction(nameof(MyListing));
+        }
+        [HttpPost]
         public async Task<IActionResult> Create(NewBookVM book)
         {
             if (!ModelState.IsValid)

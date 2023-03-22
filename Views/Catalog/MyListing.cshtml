@@ -64,7 +64,11 @@
 
                         @if (User.Identity.IsAuthenticated)
                         {
-                            <a type="button" class="btn btn-danger">Remove Listing</a>
+                          
+
+                            <form method="post" asp-action="Delete" asp-route-id="@item.Id">
+                                <button class="btn btn-danger" type="submit">Remove Listing</button>
+                            </form>
                         }
                     </div>
                 </div>

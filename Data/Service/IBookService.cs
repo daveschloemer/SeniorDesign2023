@@ -10,5 +10,7 @@ namespace FreshBooks.Data.Service
         Task AddNewBookAsync(NewBookVM data, string userId, string userEmail, string userName);
 
         Task<List<Book>> GetBooksByUserIdAsync(string userId);
+
+        Task DeleteBookAsync(int id);
     }
 }
