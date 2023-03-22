@@ -3,6 +3,7 @@ using FreshBooks.Data.Service;
 using FreshBooks.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Security.Claims;
 
 namespace FreshBooks.Controllers
 {
@@ -59,8 +60,21 @@ namespace FreshBooks.Controllers
                 return View(book);
             }
 
-            await _service.AddNewBookAsync(book);
+            string userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            string userEmail = User.FindFirstValue(ClaimTypes.Email);
+            string userName = User.FindFirstValue(ClaimTypes.Name);
+            await _service.AddNewBookAsync(book, userId, userEmail, userName);
+
             return RedirectToAction(nameof(Catalog));
         }
+
+        public async Task<IActionResult> MyListing()
+        {
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var allBooks = await _service.GetBooksByUserIdAsync(userId);
+            return View(allBooks);
+        }
     }
+
+
 }

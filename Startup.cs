@@ -34,7 +34,6 @@ namespace FreshBook
             //Services
             services.AddScoped<IBookService, BookService>();
 
-
             services.AddControllersWithViews();
 
             //Authentication and Authorization
@@ -75,9 +74,9 @@ namespace FreshBook
 
 
             //Seed database
-            AppDbInitializer.Seed(app);
             AppDbInitializer.SeedUsersAndRolesAsync(app).Wait();
-
+/*            AppDbInitializer.Seed(app);
+*/
         }
 
         public class StartupEmail
