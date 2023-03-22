@@ -289,17 +289,6 @@ namespace FreshBooks.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("FreshBooks.Models.ListedTabItem", b =>
-                {
-                    b.HasOne("FreshBooks.Models.Book", "Book")
-                        .WithMany()
-                        .HasForeignKey("BookId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Book");
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)

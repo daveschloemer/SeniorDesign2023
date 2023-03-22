@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FreshBooks.Migrations
 {
     [DbContext(typeof(BookDbContext))]
-    [Migration("20230322004613_AddEmUN")]
-    partial class AddEmUN
+    [Migration("20230322015109_Initial")]
+    partial class Initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -118,9 +118,8 @@ namespace FreshBooks.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Price")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<double>("Price")
+                        .HasColumnType("float");
 
                     b.Property<string>("Subject")
                         .IsRequired()
