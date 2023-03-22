@@ -52,20 +52,6 @@ namespace FreshBooks.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "BookUser",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    UserId = table.Column<string>(type: "nvarchar(max)", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_BookUser", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "AspNetRoleClaims",
                 columns: table => new
                 {
@@ -172,6 +158,26 @@ namespace FreshBooks.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "BookUser",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_BookUser", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_BookUser_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Book",
                 columns: table => new
                 {
@@ -240,6 +246,11 @@ namespace FreshBooks.Migrations
                 name: "IX_Book_BookUserId",
                 table: "Book",
                 column: "BookUserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_BookUser_UserId",
+                table: "BookUser",
+                column: "UserId");
         }
 
         /// <inheritdoc />
@@ -267,10 +278,10 @@ namespace FreshBooks.Migrations
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
-                name: "AspNetUsers");
+                name: "BookUser");
 
             migrationBuilder.DropTable(
-                name: "BookUser");
+                name: "AspNetUsers");
         }
     }
 }

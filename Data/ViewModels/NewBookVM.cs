@@ -13,8 +13,6 @@ namespace FreshBooks.Models
         [Required(ErrorMessage = "Please Input Title")]
         public string Title { get; set; }
 
-        public string Email { get; set; }
-
         [Display(Name = "Book ISBN")]
         [Required(ErrorMessage = "Please Input ISBN")]
         public string ISBN { get; set; }

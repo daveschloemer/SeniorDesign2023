@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FreshBooks.Migrations
 {
     [DbContext(typeof(BookDbContext))]
-    [Migration("20230321054729_Initial")]
-    partial class Initial
+    [Migration("20230321234910_useridaddehjk")]
+    partial class useridaddehjk
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -154,9 +154,11 @@ namespace FreshBooks.Migrations
 
                     b.Property<string>("UserId")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("BookUser");
                 });
@@ -303,6 +305,17 @@ namespace FreshBooks.Migrations
                         .IsRequired();
 
                     b.Navigation("BookUser");
+                });
+
+            modelBuilder.Entity("FreshBooks.Models.BookUser", b =>
+                {
+                    b.HasOne("FreshBooks.Models.ApplicationUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

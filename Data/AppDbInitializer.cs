@@ -8,8 +8,10 @@ namespace FreshBooks.Data
 {
     public class AppDbInitializer
     {
-        public static void Seed(IApplicationBuilder applicationBuilder)
+        /*public static void Seed(IApplicationBuilder applicationBuilder)
         {
+
+
             using (var serviceScope = applicationBuilder.ApplicationServices.CreateScope())
             {
                 var context = serviceScope.ServiceProvider.GetService<BookDbContext>();
@@ -22,93 +24,93 @@ namespace FreshBooks.Data
                     {
                         new BookUser()
                         {
-                            Email = "testin5g@mail.uc.edu",
-                            UserId = "1"
+                            Email = "test5@mail.uc.edu",
+                            UserId = "f43a6352-f6e2-499c-a947-ef643d0d6e50"
                         },
                         new BookUser()
                         {
-                            Email = "testin5g@mail.uc.edu",
-                            UserId = "2"
+                            Email = "schloedle@mail.uc.edu",
+                            UserId = "71b2801f-e277-4e5e-a6c2-25abbd970e3f"
                         },
                         new BookUser()
                         {
                             Email = "testing5@mail.uc.edu",
-                            UserId = "3"
+                            UserId = "f43a6352-f6e2-499c-a947-ef643d0d6e50"
                         },
                         new BookUser()
                         {
                             Email = "testing@mail.uc.edu",
-                            UserId = "4"
+                            UserId = "f43a6352-f6e2-499c-a947-ef643d0d6e50"
                         },
                         new BookUser()
                         {
                             Email = "testing@mail.uc.edu",
-                            UserId = "5"
+                            UserId = "f43a6352-f6e2-499c-a947-ef643d0d6e50"
                         },
                         new BookUser()
                         {
                             Email = "testing@mail.uc.edu",
-                            UserId = "6"
+                            UserId = "f43a6352-f6e2-499c-a947-ef643d0d6e50"
                         },
                         new BookUser()
                         {
                             Email = "tsting@mail.uc.edu",
-                            UserId = "7"
+                            UserId = "f43a6352-f6e2-499c-a947-ef643d0d6e50"
                         },
                         new BookUser()
                         {
                             Email = "testing@mail.uc.edu",
-                            UserId = "8"
+                            UserId = "f43a6352-f6e2-499c-a947-ef643d0d6e50"
                         },
                         new BookUser()
                         {
                             Email = "testing@mail.uc.edu",
-                            UserId = "9"
+                            UserId = "f43a6352-f6e2-499c-a947-ef643d0d6e50"
                         },
                         new BookUser()
                         {
                             Email = "testing@mail.uc.edu",
-                            UserId = "10"
+                            UserId = "f43a6352-f6e2-499c-a947-ef643d0d6e50"
                         },
                         new BookUser()
                         {
                             Email = "testing@mail.uc.edu",
-                            UserId = "11"
+                            UserId = "f43a6352-f6e2-499c-a947-ef643d0d6e50"
                         },
                         new BookUser()
                         {
                             Email = "testing@mail.uc.edu",
-                            UserId = "12"
+                            UserId = "f43a6352-f6e2-499c-a947-ef643d0d6e50"
                         },
                         new BookUser()
                         {
                             Email = "testing@mail.uc.edu",
-                            UserId = "13"
+                            UserId = "f43a6352-f6e2-499c-a947-ef643d0d6e50"
                         },
                         new BookUser()
                         {
                             Email = "testing@mail.uc.edu",
-                            UserId = "14"
+                            UserId = "f43a6352-f6e2-499c-a947-ef643d0d6e50"
                         },
                         new BookUser()
                         {
                             Email = "testing@mail.uc.edu",
-                            UserId = "15"
+                            UserId = "f43a6352-f6e2-499c-a947-ef643d0d6e50"
                         },
                         new BookUser()
                         {
                             Email = "testing@mail.uc.edu",
-                            UserId = "16"
+                            UserId = "f43a6352-f6e2-499c-a947-ef643d0d6e50"
                         },
                         new BookUser()
                         {
                             Email = "testing@mail.uc.edu",
-                            UserId = "17"
+                            UserId = "f43a6352-f6e2-499c-a947-ef643d0d6e50"
                         },
                         new BookUser()
                         {
                             Email = "testing@mail.uc.edu",
-                            UserId = "18"
+                            UserId = "f43a6352-f6e2-499c-a947-ef643d0d6e50"
                         },
 
 
@@ -130,7 +132,7 @@ namespace FreshBooks.Data
                             imagesURL ="https://firebasestorage.googleapis.com/v0/b/ucfreshbooks.appspot.com/o/images%2Fcsharp.jpg?alt=media&token=191d5623-b438-43e1-a897-3f2e8f1bb750",
                             Author ="Anne Boehm and Joel Murach",
                             Subject="Information Technology",
-                            BookUserId =1
+                            BookUserId =3
                         },
                         new Book()
 
@@ -142,7 +144,7 @@ namespace FreshBooks.Data
                             imagesURL ="https://firebasestorage.googleapis.com/v0/b/ucfreshbooks.appspot.com/o/images%2Fsql.jpg?alt=media&token=84132a3c-10f6-457c-902c-1bd41832d908",
                             Author ="Bryan Syverson and Joel Murach",
                             Subject="Information Technology",
-                            BookUserId =2
+                            BookUserId =3
 
                         },
                         new Book()
@@ -340,227 +342,9 @@ namespace FreshBooks.Data
 
                     });
                     context.SaveChanges();
-                }
-                //Authors
- /*               if(!context.Author.Any())
-                {
-                    context.Author.AddRange(new List<Author>()
-                    {
-                        new Author()
-                        {
-                            Name ="Anne Boehm and Joel Murach",
-                            Description = "C#"
-                        },
-                        new Author()
-                        {
-                            Name ="Bryan Syverson and Joel Murach",
-                            Description = "SQL"
-                        },
-                        new Author()
-                        {
-                            Name ="Larry L. Peterson and Bruce S. Davie",
-                            Description = "Networks"
-                        },
-                        new Author()
-                        {
-                            Name ="Kalani Kirk Hausman and Susan Cook",
-                            Description = "IT Dummies"
-                        },
-                        new Author()
-                        {
-                            Name ="Matthew Weston",
-                            Description = "Power Apps"
-                        },
-                        new Author()
-                        {
-                            Name ="Tracy Fullerton",
-                            Description = "Game Design"
-                        },
-                        new Author()
-                        {
-                            Name ="Gary Walker",
-                            Description = "IT Problem Management"
-                        },
-                        new Author()
-                        {
-                            Name ="Laurence Lars Svekis, Maaike van Putten, Rob Percival",
-                            Description = "JavaScript"
-                        },
-                         new Author()
-                        {
-                            Name ="Andy Rathbone",
-                            Description = "Win10"
-                        },
-                         new Author()
-                        {
-                            Name ="Andy Rathbone",
-                            Description = "Win11"
-                        },
-                         new Author()
-                        {
-                            Name ="Cheryl Schmidt",
-                            Description = "CompTIA"
-                        },
-                         new Author()
-                        {
-                            Name ="Lisa McLendon",
-                            Description = "English"
-                        },
-                         new Author()
-                        {
-                            Name ="Tracy Fullerton",
-                            Description = "Game Design"
-                        },
-                         new Author()
-                        {
-                            Name ="David DuRocher",
-                            Description = "HTML & CSS"
-                        },
-                         new Author()
-                        {
-                            Name ="Ahmad Sahar and Craig Clayton",
-                            Description = "iOS 16"
-                        },
-                         new Author()
-                        {
-                            Name ="Craig Berg",
-                            Description = "Cisco Networking"
-                        },
-                         new Author()
-                        {
-                            Name ="Don Jones and Jeffery Hicks",
-                            Description = "Powershell"
-                        },
-                         new Author()
-                        {
-                            Name ="Jennifer S. Cheavens",
-                            Description = "Psychology"
-                        },
-                    });
-                    context.SaveChanges();
-                }*/
-
-
-                //Author_Books
-/*                if (!context.Author_Books.Any())
-                {
-                    context.Author_Books.AddRange(new List<Author_Books>()
-                    {
-                        new Author_Books()
-                        {
-                            BookId = 1,
-                            AuthorId= 1,
-                            Subject="Information Technology"
-                        },
-                        new Author_Books()
-                        {
-                            BookId = 2,
-                            AuthorId= 2,
-                            Subject="Information Technology"
-                        },
-                        new Author_Books()
-                        {
-                            BookId = 3,
-                            AuthorId= 3,
-                            Subject="Information Technology"
-                        },
-                        new Author_Books()
-                        {
-                            BookId = 4,
-                            AuthorId= 4,
-                            Subject="Information Technology"
-                        },
-                        new Author_Books()
-                        {
-                            BookId = 5,
-                            AuthorId= 5,
-                            Subject="Information Technology"
-                        },
-                        new Author_Books()
-                        {
-                            BookId = 6,
-                            AuthorId= 6,
-                            Subject="Game Design"
-                        },
-                        new Author_Books()
-                        {
-                            BookId = 7,
-                            AuthorId= 7,
-                            Subject="Information Technology"
-                        },
-                        new Author_Books()
-                        {
-                            BookId = 8,
-                            AuthorId= 8,
-                            Subject="Information Technology"
-                        },
-                        new Author_Books()
-                        {
-                            BookId = 9,
-                            AuthorId= 9,
-                            Subject="Information Technology"
-                        },
-                        new Author_Books()
-                        {
-                            BookId = 10,
-                            AuthorId= 10,
-                            Subject="Information Technology"
-                        },
-                        new Author_Books()
-                        {
-                            BookId = 11,
-                            AuthorId= 11,
-                            Subject="Information Technology"
-                        },
-                        new Author_Books()
-                        {
-                            BookId = 12,
-                            AuthorId= 12,
-                            Subject="English"
-                        },
-                        new Author_Books()
-                        {
-                            BookId = 13,
-                            AuthorId= 13,
-                            Subject="Information Technology"
-                        },
-                        new Author_Books()
-                        {
-                            BookId = 14,
-                            AuthorId= 14,
-                            Subject="Information Technology"
-                        },
-                        new Author_Books()
-                        {
-                            BookId = 15,
-                            AuthorId= 15,
-                            Subject="Information Technology"
-                        },
-                        new Author_Books()
-                        {
-                            BookId = 16,
-                            AuthorId= 16,
-                            Subject="Information Technology"
-                        },
-                        new Author_Books()
-                        {
-                            BookId = 17,
-                            AuthorId= 17,
-                            Subject="Information Technology"
-                        },
-                        new Author_Books()
-                        {
-                            BookId = 18,
-                            AuthorId= 18,
-                            Subject="Psychology"
-                        }
-                    });
-                    context.SaveChanges();
-                }*/
-                
-
+                }                
             }
-        }
+        }*/
 
         public static async Task SeedUsersAndRolesAsync(IApplicationBuilder applicationBuilder)
         {
