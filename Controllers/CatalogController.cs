@@ -51,7 +51,11 @@ namespace FreshBooks.Controllers
             }
             return View("Catalog", allBooks);
         }
-
+        [HttpGet("RequestSuccess")]
+        public IActionResult RequestSuccess()
+        {
+            return View();
+        }
         [HttpPost]
         public async Task<IActionResult> Create(NewBookVM book)
         {
@@ -65,7 +69,7 @@ namespace FreshBooks.Controllers
             string userName = User.FindFirstValue(ClaimTypes.Name);
             await _service.AddNewBookAsync(book, userId, userEmail, userName);
 
-            return RedirectToAction(nameof(Catalog));
+            return View("RequestSuccess");
         }
 
         public async Task<IActionResult> MyListing()
