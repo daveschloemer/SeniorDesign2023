@@ -65,12 +65,15 @@
                             }
                         </div>
                         <div class="col-6">
-                            @if (User.Identity.IsAuthenticated)
+                            <a href="/OrderForm">
+                                <button type="button" id="contactSeller" class="btn btn-success btn-block" data-toggle="collapse" data-target="#contactform3">Contact Seller</button>
+                            </a>
+@*                            @if (User.Identity.IsAuthenticated)
                             {
                                 <a href="/OrderForm">
                                     <button type="button" id="contactSeller" class="btn btn-success btn-block" data-toggle="collapse" data-target="#contactform3">Contact Seller</button>
                                 </a>
-                            }
+                            }*@
                         </div>
                     </div>
                 </div>
