@@ -27,6 +27,5 @@ namespace FreshBooks.Models
 /*        public int BookUserId { get; set; }
         [ForeignKey("BookUserId")]
         public BookUser BookUser { get; set; }*/
-
     }
 }

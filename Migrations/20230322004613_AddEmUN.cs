@@ -24,7 +24,7 @@ namespace FreshBooks.Migrations
                 nullable: false,
                 defaultValue: "");
         }
-
+           
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
