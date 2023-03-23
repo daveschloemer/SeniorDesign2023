@@ -88,6 +88,11 @@ namespace FreshBooks.Controllers
         {
             return View();
         }
+        [HttpGet("FAQ")]
+        public IActionResult FAQ()
+        {
+            return View();
+        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
