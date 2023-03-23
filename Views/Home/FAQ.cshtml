@@ -1,0 +1,66 @@
+﻿@{
+    ViewBag.Title = "Frequently Asked Questions";
+}
+
+<style>
+    .faq-question.btn-primary {
+        background-color: #222529;
+        color: #fff;
+        border-color: #fff;
+    }
+
+    .faq-question.btn-primary:hover, .faq-question.btn-primary:active {
+            background-color: #222529;
+            border-color: #fff;
+    }
+
+    .faq-answer {
+        display: none;
+        padding: 10px 20px;
+        margin-bottom: 20px;
+        background-color: #fff;
+        color: #000;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+</style>
+
+<div class="container mt-5">
+    <div class="faq-item">
+        <button class="faq-question btn btn-primary mb-2">What is UCFreshbooks goal?</button>
+        <div class="faq-answer mb-4">
+            UCFreshbooks is intened for University of Cincinnati Students to be able to safely and quickly connect with fellow peers to buy, sell, and trade used textbooks.
+        </div>
+    </div>
+    <div class="faq-item">
+        <button class="faq-question btn btn-primary mb-2">Why not use Facebook, Ebay, Amazon, or other retail websites to purchase used textbooks?</button>
+        <div class="faq-answer mb-4">
+            UCFreshbooks aims to build a community of University of Cincinnati students where users can feel safe knowing that purchasing from fellow peers with a few added benefits.
+            <br />
+            <br />
+                1. You are able to quickly meet up at the many safe reccommended UC Main Campus locations during the day. 
+            <br /> 
+                2. The books you find on our website should be common textbooks you would find students that took the same class you are taking now.
+            <br />
+                3. The users of our service must register with a mail.uc.edu email address. This means scams and other illegal activies should be less of a worry to you.
+        </div>
+    </div>
+    <div class="faq-item">
+        <button class="faq-question btn btn-primary mb-2">What should I do if someone wants to meet outside of UC's Campus?</button>
+        <div class="faq-answer mb-4">
+            Polietly decline and if the message is either offensive or rude please <href contact us and tell us about the experience.
+        </div>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $('.faq-question').click(function () {
+                $(this).next('.faq-answer').slideToggle();
+            });
+        });
+    </script>
+}
