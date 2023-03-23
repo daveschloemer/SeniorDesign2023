@@ -8,8 +8,11 @@
 @section Scripts {
     <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
     <script src="~/lib/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
     <script src='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js'></script>
     <script>
+
         mapboxgl.accessToken = 'pk.eyJ1Ijoic2NobG9lZGUiLCJhIjoiY2xlZ2ptOHE4MDdtYTN6bnQ2aHM0Y2M1MSJ9.9fLP4vGL_AzFb2TJx1u09A';
         const map = new mapboxgl.Map({
             container: 'map',
@@ -69,11 +72,12 @@
                 .addTo(map);
             this.markerStatus = true;
         };
+
     </script>
 }
 <link href='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css' rel='stylesheet' />
 <div id="orderform">
-    <form method="post">
+    <form id="Testing" method="post">
         <div class="form-group">
             <label asp-for="BuyerName">First & Last Name: </label>
             <input asp-for="BuyerName" class="form-control" />
@@ -129,7 +133,8 @@
 
         <div class="form-group">
             <br />
-            <button type="submit" class="btn btn-primary" asp-controller="Email" asp-action="SendEmail" />Send Message to Buyer asp</a>
+
+            <button class="btn btn-primary" asp-controller="Email" asp-action="SendEmail" />Send Message to Buyer asp</a>
             <!--<a type="submit" href="/SuccessSignup" class="btn btn-primary" /><i class="fas fa-envelope"></i> Sign Up</a>-->
             <br />
             <br />
