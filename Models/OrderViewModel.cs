@@ -6,14 +6,14 @@ namespace FreshBooks.Models
     {
         [Required]
         [MinLength(2)]
-        public string Name { get; set; }
+        public string BuyerName { get; set; }
         [Required]
         [EmailAddress]
         public string Email { get; set; }
         [Required]
-        public string StudentID { get; set; }
+        public int BookID { get; set; }
         [Required]
-        public string Number { get; set; }
+        public string BuyerEmail { get; set; }
 
     }
 }

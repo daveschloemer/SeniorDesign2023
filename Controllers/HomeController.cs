@@ -75,9 +75,13 @@ namespace FreshBooks.Controllers
             return View();
         }
         [HttpGet("OrderForm")]
-        public IActionResult OrderForm()
+        public async Task<IActionResult> OrderForm(int id)
         {
-            return View();
+            var booksDetail = await _service.GetBookAsync(id);
+            OrderViewModel ovm= new OrderViewModel();
+            ovm.Email = booksDetail.Email;
+            ovm.BookID = booksDetail.Id; 
+            return View(ovm);
         }
         [HttpGet("About")]
         public IActionResult About()

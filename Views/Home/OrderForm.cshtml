@@ -19,7 +19,6 @@
         });
         map.addControl(new mapboxgl.NavigationControl(), 'top-left');
         this.markerStatus == false;
-
         function remove() {
             this.marker.remove();
             this.markerStatus == false;
@@ -33,7 +32,7 @@
                 .addTo(map);
             this.markerStatus = true;
         };
-        
+
         function setTUC() {
             if (this.markerStatus == true) {
                 remove();
@@ -76,23 +75,23 @@
 <div id="orderform">
     <form method="post">
         <div class="form-group">
-            <label asp-for="Name">First & Last Name: </label>
-            <input asp-for="Name" class="form-control" />
+            <label asp-for="BuyerName">First & Last Name: </label>
+            <input asp-for="BuyerName" class="form-control" />
         </div>
 
         <div class="form-group">
             <label asp-for="Email">UC Email: </label>
-            <input type="Email" asp-for="Email" class="form-control" />
+            <input type="Email" asp-for="Email" class="form-control"/>
         </div>
 
         <div class="form-group">
-            <label asp-for="StudentID">M Number: </label>
-            <input type="StudentID" asp-for="StudentID" class="form-control" />
+            <label asp-for="BookID">M Number: </label>
+            <input type="StudentID" asp-for="BookID" class="form-control" value="@Model.BookID"/>
         </div>
 
         <div class="form-group">
-            <label asp-for="Number">Phone Number: </label>
-            <input type="Number" asp-for="Number" class="form-control" />
+            <label asp-for="BuyerEmail">Phone Number: </label>
+            <input type="Number" asp-for="BuyerEmail" class="form-control" />
         </div>
         <link href='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css' rel='stylesheet' />
         <div id='map' style='width: 400px; height: 300px;'></div>
@@ -130,7 +129,7 @@
 
         <div class="form-group">
             <br />
-            <a type="submit" href="/SuccessSignup" class="btn btn-primary" />Send Message to Buyer</a>
+            <button type="submit" class="btn btn-primary" asp-controller="Email" asp-action="SendEmail" />Send Message to Buyer asp</a>
             <!--<a type="submit" href="/SuccessSignup" class="btn btn-primary" /><i class="fas fa-envelope"></i> Sign Up</a>-->
             <br />
             <br />
