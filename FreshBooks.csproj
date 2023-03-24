@@ -11,6 +11,7 @@
     <None Remove="Views\TermsOfService\" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="wwwroot\index.html" />
     <None Include="wwwroot\lib\img\computernetworks.jpg" />
   </ItemGroup>
 
@@ -31,6 +32,7 @@
 
   <ItemGroup>
     <Content Remove="wwwroot\img\" />
+    <Content Remove="wwwroot\index.html" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="wwwroot\img\" />
