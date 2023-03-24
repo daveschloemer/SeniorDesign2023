@@ -81,7 +81,14 @@ namespace FreshBooks.Controllers
             var booksDetail = await _service.GetBookAsync(id);
             OrderViewModel ovm= new OrderViewModel();
             ovm.Email = booksDetail.Email;
-            ovm.BookID = booksDetail.Id; 
+            ovm.BookID = booksDetail.Id;
+            ovm.Author = booksDetail.Author;
+            ovm.Subject = booksDetail.Subject;
+            ovm.Edition = booksDetail.Edition;
+            ovm.ISBN= booksDetail.ISBN;
+            ovm.BookTitle = booksDetail.Title;
+            ovm.Price = booksDetail.Price.ToString();
+            ovm.imagesURL = booksDetail.imagesURL;
             return View(ovm);
         }
         [HttpGet("About")]

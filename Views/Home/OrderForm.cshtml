@@ -75,22 +75,69 @@
 
     </script>
 }
+
 <link href='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css' rel='stylesheet' />
 <div id="orderform">
     <form id="Testing" method="post">
+            <div class="row">
+        <div class="col-md-6 col-lg-5 mb-5">
+                <label asp-for="imagesURL" hidden>imagesURL: </label>
+                <input type="imagesURL" asp-for="imagesURL" class="form-control" hidden />
+                <img src="@Model.imagesURL" class="w-100 rounded" alt="@Model.BookTitle"> 
+        </div>
+
+        <div class="col-md-6 col-lg-7">
+            <div class="form-group">
+                    <label asp-for="BookTitle">Title: </label>
+                    <input type="BookTitle" asp-for="BookTitle" class="form-control" value="@Model.BookTitle" hidden />
+                    <h1 class="mb-4">@Model.BookTitle</h1>
+
+            </div>
+
+            <div class="product-props mb-5">
+                <ul class="list-unstyled">
+
+                        <label asp-for="ISBN">ISBN: </label>
+                        <input type="ISBN" asp-for="ISBN" class="form-control" hidden />
+                    <li>@Model.ISBN</li>
+
+                        <label asp-for="Author">Author: </label>
+                        <input type="Author" asp-for="Author" class="form-control" hidden />
+                    <li>@Model.Author</li>
+
+                        <label asp-for="Subject">Subject: </label>
+                        <input type="Subject" asp-for="Subject" class="form-control" hidden />
+                    <li>@Model.Subject</li>
+
+                        <label asp-for="Edition">Edition: </label>
+                        <input type="Edition" asp-for="Edition" class="form-control" hidden />
+                    <li>@Model.Edition</li>
+                </ul>
+            </div>
+
+            <div class="d-flex align-items-center mb-5">
+                <div class="mr-5">
+                    <h2 class="h5">Price</h2>
+                        <label asp-for="Price">Price: </label>
+                        <input type="Edition" asp-for="Price" class="form-control" hidden />
+                    <p class="text-primary h4">@Model.Price</p>
+                </div>
+            </div>
+        </div>
+    </div>
         <div class="form-group">
             <label asp-for="BuyerName">First & Last Name: </label>
             <input asp-for="BuyerName" class="form-control" />
         </div>
 
         <div class="form-group">
-            <label asp-for="Email" hidden>UC Email: </label>
-            <input type="email" asp-for="Email" class="form-control" hidden />
+            <label asp-for="Email">UC Email: </label>
+            <input type="email" asp-for="Email" class="form-control"/>
         </div>
 
         <div class="form-group">
-            <label asp-for="BookID">M Number: </label>
-            <input type="StudentID" asp-for="BookID" class="form-control" value="@Model.BookID"/>
+            <label asp-for="BookID" hidden>M Number: </label>
+            <input type="StudentID" asp-for="BookID" class="form-control" value="@Model.BookID" hidden/>
         </div>
 
         <div class="form-group">
