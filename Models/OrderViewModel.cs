@@ -4,7 +4,7 @@ namespace FreshBooks.Models
 {
     public class OrderViewModel
     {
-        [Required]
+        [Required(ErrorMessage = "Please Your Name")]
         [MinLength(2)]
         public string BuyerName { get; set; }
         [Required]
@@ -14,9 +14,9 @@ namespace FreshBooks.Models
         [Required]
         public int BookID { get; set; }
 
-        [Display(Name = "BuyerEmail")]
-        [Required(ErrorMessage = "Please Your Email Address")]
-        public string BuyerEmail { get; set; }
+        [Display(Name = "Phone")]
+        [Required(ErrorMessage = "Please Your Phone Number")]
+        public string Phone { get; set; }
         [Required]
         public string Edition { get; set; }
         [Required]
