@@ -1,0 +1,7 @@
+﻿namespace FreshBooks
+{
+    public class index
+    {
+        DirectoryIndex Home.cshtml
+    }
+}
