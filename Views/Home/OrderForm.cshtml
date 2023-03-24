@@ -95,89 +95,98 @@
                         <div class="mr-5">
                             <h2 class="h5">Price</h2>
                             <input type="Edition" asp-for="Price" class="form-control" hidden />
-                            <p class="text-primary h4">@Model.Price</p>
+                            <p class="text-primary h4">$@Model.Price</p>
+                            <br />
+                            @if (!User.Identity.IsAuthenticated)
+                            {
+                                <a class="btn btn-success" asp-controller="Account" asp-action="Login">Login to Message Seller</a>
+                            }
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </form>
-    <div class="card-body">
-        <h5 class="card-title">Buyer Information</h5>
-        <div class="form-group">
-            <label asp-for="BuyerName">First & Last Name: </label>
-            <input asp-for="BuyerName" class="form-control" />
-        </div>
-
-        <div class="form-group">
-            <label asp-for="Email">UC Email: </label>
-            <input type="email" asp-for="Email" class="form-control" />
-        </div>
-
-        <div class="form-group">
-            <label asp-for="BookID" hidden>M Number: </label>
-            <input type="StudentID" asp-for="BookID" class="form-control" value="@Model.BookID" hidden />
-        </div>
-
-        <div class="form-group">
-            <label asp-for="Phone">Phone Number: </label>
-            <input type="Number" asp-for="Phone" class="form-control" />
-        </div>
-
-        <h5 class="card-title">Pickup Location</h5>
-
-        <div>
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="location" id="location-langsam" value="langsam" onclick="setLangsam()">
-                <label class="form-check-label" for="location-langsam">
-                    Langsam Library
-                </label>
-            </div>
-
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="location" id="location-tuc" value="tuc" onclick="setTUC()">
-                <label class="form-check-label" for="location-tuc">
-                    Tangeman University Center/Bookstore (TUC)
-                </label>
-            </div>
-
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="location" id="location-crc" value="crc" onclick="setCRC()">
-                <label class="form-check-label" for="location-crc">
-                    Campus Recreation Center/Center Court
-                </label>
-            </div>
-
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="location" id="location-mainstreet" value="mainstreet" onclick="setMainStreet()">
-                <label class="form-check-label" for="location-mainstreet">
-                    Main Street
-                </label>
-            </div>
-
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="location" id="location-53" value="53" onclick="setFifthThird()">
-                <label class="form-check-label" for="location-53">
-                    Fifth Third Arena (Front Plaza)
-                </label>
-            </div>
-
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="location" id="location-other" value="other" onclick="remove()">
-                <label class="form-check-label" for="location-other">
-                    Other (Make sure location is an open public place)
-                </label>
-                <input type="text" name="other_reason" class="form-control" />
-            </div>
-        </div>
-
-        <h5 class="card-title">Map</h5>
-
-        <link href='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css' rel='stylesheet' />
-        <div id='map' style='width: 100%; height: 300px;'></div>
-
-        <div class="form-group mt-3">
-            <button class="btn btn-primary" asp-controller="Email" asp-action="SendEmail" />Send Message to Buyer</a>
-        </div>
-    </div>
 </div>
+@if (User.Identity.IsAuthenticated){
+    <h5 class="card-title">Buyer Information</h5>
+            <div class="form-group">
+                <label asp-for="BuyerName">First & Last Name: </label>
+                <input asp-for="BuyerName" class="form-control" />
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Email">UC Email: </label>
+                <input type="email" asp-for="Email" class="form-control" />
+            </div>
+
+            <div class="form-group">
+                <label asp-for="BookID" hidden>M Number: </label>
+                <input type="StudentID" asp-for="BookID" class="form-control" value="@Model.BookID" hidden />
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Phone">Phone Number: </label>
+                <input type="Number" asp-for="Phone" class="form-control" />
+            </div>
+
+            <h5 class="card-title">Pickup Location</h5>
+
+            <div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="location" id="location-langsam" value="langsam" onclick="setLangsam()">
+                    <label class="form-check-label" for="location-langsam">
+                        Langsam Library
+                    </label>
+                </div>
+
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="location" id="location-tuc" value="tuc" onclick="setTUC()">
+                    <label class="form-check-label" for="location-tuc">
+                        Tangeman University Center/Bookstore (TUC)
+                    </label>
+                </div>
+
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="location" id="location-crc" value="crc" onclick="setCRC()">
+                    <label class="form-check-label" for="location-crc">
+                        Campus Recreation Center/Center Court
+                    </label>
+                </div>
+
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="location" id="location-mainstreet" value="mainstreet" onclick="setMainStreet()">
+                    <label class="form-check-label" for="location-mainstreet">
+                        Main Street
+                    </label>
+                </div>
+
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="location" id="location-53" value="53" onclick="setFifthThird()">
+                    <label class="form-check-label" for="location-53">
+                        Fifth Third Arena (Front Plaza)
+                    </label>
+                </div>
+
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="location" id="location-other" value="other" onclick="remove()">
+                    <label class="form-check-label" for="location-other">
+                        Other (Make sure location is an open public place)
+                    </label>
+                    <input type="text" name="other_reason" class="form-control" />
+                </div>
+            </div>
+
+            <h5 class="card-title">Map</h5>
+
+            <link href='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css' rel='stylesheet' />
+            <div id='map' style='width: 100%; height: 300px;'></div>
+            <br />
+            <div>
+                <a><button class="btn btn-primary" asp-controller="Email" asp-action="SendEmail" />Send Message to Buyer</a>
+            </div>
+            }
+            
+        </div>
+</div>
+            
