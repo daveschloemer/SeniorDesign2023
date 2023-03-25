@@ -27,6 +27,7 @@ namespace FreshBooks.Controllers
         public async Task<IActionResult> Details(int id)
         {
             var booksDetail = await _service.GetBookAsync(id);
+            booksDetail.Id = id;
             return View(booksDetail);
         }
 
