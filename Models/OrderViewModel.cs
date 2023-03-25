@@ -31,7 +31,9 @@ namespace FreshBooks.Models
         public string Subject { get; set; }
         [Required]
         public string imagesURL { get; set; }
-/*        [Required]
-*//*        public string UserName { get; set; }*/
+
+        public bool IsOptionOneSelected { get; set; }
+        /*        [Required]
+        *//*        public string UserName { get; set; }*/
     }
 }

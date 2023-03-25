@@ -31,16 +31,25 @@ namespace FreshBooks.Controllers
             var request = new EmailDto();
             request.To = email;
             request.Subject = $"Buyer Interest - {orderInformation.BuyerName} - {orderInformation.BookTitle}";
-            request.Body = $"Hello Buyer, {orderInformation.BuyerName} is interested in buying the Book you </br>" +
-                $"listed Below are the information about the Book the Buyer is interested in </br>" +
-                $"{orderInformation.BookTitle}</br>" +
-                $"{orderInformation.ISBN}</br>" +
-                $"{orderInformation.Author}</br>" +
+            request.Body = $"Hello, </br> " +
+                $"{orderInformation.BuyerName} is interested in buying a book that you have listed. </br>" +
+                $"<h4>Book Information:</h4> </br>" +
+                $"Title:{orderInformation.BookTitle}</br>" +
+                $"ISBN:{orderInformation.ISBN}</br>" +
+                $"Author:{orderInformation.Author}</br>" +
                 $"<img src='{orderInformation.imagesURL}' alt='{orderInformation.BookTitle}' style='width: 100%; max-width: 600px;'/></br>" +
                 $"" +
-                $"Contact the Buyer with the email addreses him/she/they/them/every other pronunce him/she/they/them/every other pronunce used </br>" +
+                $"Please contact the buyer with the listed email:{userEmail} </br>" +
                 $"" +
-                $"{userEmail}</br>";
+                $"If the book is no longer available, please login and remove it from your listing.</br>" +
+                $"" +
+                $"To remove the textbook from your listings page:</br>" +
+                $"" +
+                $"Click on your profile -> My Listing -> Find your Book -> Click on remove listing" +
+                $"" +
+                $"Thanks!" +
+                $"" +
+                $"The FreshBooks Team";
 
             this.emailService.SendEmail(request);
 
