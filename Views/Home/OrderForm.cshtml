@@ -1,3 +1,5 @@
+@inject UserManager<ApplicationUser> UserManager;
+@using Microsoft.AspNetCore.Identity;
 @{
     ViewBag.Title = "OrderForm";
 }
@@ -122,67 +124,69 @@
                 </div>
             </div>
         </div>
+        @if (User.Identity.IsAuthenticated)
+        {
+            <div class="form-group">
+                <label asp-for="BuyerName">First & Last Name: </label>
+                <input asp-for="BuyerName" class="form-control" />
+            </div>
 
-        <div class="form-group">
-            <label asp-for="BuyerName">First & Last Name: </label>
-            <input asp-for="BuyerName" class="form-control" />
-        </div>
+            <div class="form-group">
+                <label asp-for="Email">UC Email: </label>
+                <input type="email" asp-for="Email" class="form-control" />
+            </div>
 
-        <div class="form-group">
-            <label asp-for="Email">UC Email: </label>
-            <input type="email" asp-for="Email" class="form-control" />
-        </div>
+            <div class="form-group">
+                <label asp-for="BookID" hidden>M Number: </label>
+                <input type="StudentID" asp-for="BookID" class="form-control" value="@Model.BookID" hidden />
+            </div>
 
-        <div class="form-group">
-            <label asp-for="BookID" hidden>M Number: </label>
-            <input type="StudentID" asp-for="BookID" class="form-control" value="@Model.BookID" hidden />
-        </div>
+            <div class="form-group">
+                <label asp-for="Phone">Phone Number: </label>
+                <input type="Number" asp-for="Phone" class="form-control" />
+            </div>
+            <link href='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css' rel='stylesheet' />
+            <div id='map' style='width: 400px; height: 300px;'></div>
 
-        <div class="form-group">
-            <label asp-for="Phone">Phone Number: </label>
-            <input type="Number" asp-for="Phone" class="form-control" />
-        </div>
-        <link href='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css' rel='stylesheet' />
-        <div id='map' style='width: 400px; height: 300px;'></div>
+            <div>
+                <h3>Locations:</h3>
+                <input type="radio" id="Location" onclick="setLangsam()" name="fav_language" value="HTML">
+                <label for="Langsam">Langsam Library</label><br>
+            </div>
 
-        <div>
-            <h3>Locations:</h3>
-            <input type="radio" id="Location" onclick="setLangsam()" name="fav_language" value="HTML">
-            <label for="Langsam">Langsam Library</label><br>
-        </div>
+            <div>
+                <input type="radio" id="Location" onclick="setTUC()" name="fav_language" value="HTML">
+                <label for="TUC">Tangeman University Center/Bookstore (TUC)</label><br>
+            </div>
 
-        <div>
-            <input type="radio" id="Location" onclick="setTUC()" name="fav_language" value="HTML">
-            <label for="TUC">Tangeman University Center/Bookstore (TUC)</label><br>
-        </div>
+            <div>
+                <input type="radio" id="Location" onclick="setCRC()" name="fav_language" value="HTML">
+                <label for="CRC">Campus Recreation Center/Center Court</label><br>
+            </div>
 
-        <div>
-            <input type="radio" id="Location" onclick="setCRC()" name="fav_language" value="HTML">
-            <label for="CRC">Campus Recreation Center/Center Court</label><br>
-        </div>
+            <div>
+                <input type="radio" id="Location" onclick="setMainStreet()" name="fav_language" value="HTML">
+                <label for="MS">Main Street</label><br>
+            </div>
 
-        <div>
-            <input type="radio" id="Location" onclick="setMainStreet()" name="fav_language" value="HTML">
-            <label for="MS">Main Street</label><br>
-        </div>
+            <div>
+                <input type="radio" id="Location" onclick="setFifthThird()" name="fav_language" value="HTML">
+                <label for="53">Fifth Third Arena (Front Plaza)</label><br>
+            </div>
 
-        <div>
-            <input type="radio" id="Location" onclick="setFifthThird()" name="fav_language" value="HTML">
-            <label for="53">Fifth Third Arena (Front Plaza)</label><br>
-        </div>
+            <div>
+                <input type="radio" id="Location" name="fav_language" value="HTML">
+                <label for="Other">Other (Make sure location is an open public place)<input type="text" name="other_reason" /></label><br>
+            </div>
 
-        <div>
-            <input type="radio" id="Location" name="fav_language" value="HTML">
-            <label for="Other">Other (Make sure location is an open public place)<input type="text" name="other_reason" /></label><br>
-        </div>
+            <div class="form-group">
+                <br />
 
-        <div class="form-group">
-            <br />
-
-            <button class="btn btn-primary" asp-controller="Email" asp-action="SendEmail" />Send Message to Buyer asp</a>
+                <button class="btn btn-primary" asp-controller="Email" asp-action="SendEmail"><a>Send Message to Buyer asp</a></button>
             <!--<a type="submit" href="/SuccessSignup" class="btn btn-primary" /><i class="fas fa-envelope"></i> Sign Up</a>-->
-            <br />
-            <br />
-        </div>
+                <br />
+                <br />
+            </div>
+        }
     </form>
 </div>
