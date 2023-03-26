@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using FreshBooks.Data;
 using FreshBooks.Data.Service;
+using FreshBooks.Data.Service.EmailService;
 using FreshBooks.Models;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
@@ -33,6 +34,7 @@ namespace FreshBook
 
             //Services
             services.AddScoped<IBookService, BookService>();
+            services.AddScoped<IEmailService, EmailService>();
 
             services.AddControllersWithViews();
 
