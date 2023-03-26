@@ -120,6 +120,11 @@
                         <label asp-for="Price">Price: </label>
                         <input type="Edition" asp-for="Price" class="form-control" hidden />
                         <p class="text-primary h4">@Model.Price</p>
+                        <br />
+                        @if (!User.Identity.IsAuthenticated)
+                        {
+                            <a class="btn btn-success" asp-controller="Account" asp-action="Login">Login to Message Seller</a>
+                        }
                     </div>
                 </div>
             </div>
