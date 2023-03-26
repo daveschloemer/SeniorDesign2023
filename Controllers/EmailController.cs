@@ -43,6 +43,8 @@ namespace FreshBooks.Controllers
                 $"" +
                 $"Please contact the buyer with the listed email:{userEmail} </br>" +
                 $"" +
+                $"The buyer has requested to meet at the following location:{orderInformation.Location} </br>" +
+                $"" +
                 $"If the book is no longer available, please login and remove it from your listing.</br>" +
                 $"" +
                 $"To remove the textbook from your listings page:</br>" +
