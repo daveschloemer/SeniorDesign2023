@@ -15,6 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="MailKit" Version="3.6.0" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.15" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.3" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.3">
@@ -33,7 +34,6 @@
     <Content Remove="wwwroot\img\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="wwwroot\img\" />
     <Folder Include="Views\Account\MyProfile\" />
     <Folder Include="Views\TermsOfService\" />
   </ItemGroup>
