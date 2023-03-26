@@ -64,6 +64,7 @@ namespace FreshBooks.Controllers
         {
             return View();
         }
+
         [HttpGet("Request")]
         public IActionResult Request()
         {
@@ -74,10 +75,26 @@ namespace FreshBooks.Controllers
         {
             return View();
         }
-        [HttpGet("OrderForm")]
-        public IActionResult OrderForm()
+        [HttpGet("MessageSent")]
+        public IActionResult MessageSent()
         {
             return View();
+        }
+        [HttpGet("OrderForm")]
+        public async Task<IActionResult> OrderForm(int id)
+        {
+            var booksDetail = await _service.GetBookAsync(id);
+            OrderViewModel ovm= new OrderViewModel();
+            ovm.Email = booksDetail.Email;
+            ovm.BookID = booksDetail.Id;
+            ovm.Author = booksDetail.Author;
+            ovm.Subject = booksDetail.Subject;
+            ovm.Edition = booksDetail.Edition;
+            ovm.ISBN= booksDetail.ISBN;
+            ovm.BookTitle = booksDetail.Title;
+            ovm.Price = booksDetail.Price.ToString();
+            ovm.imagesURL = booksDetail.imagesURL;
+            return View(ovm);
         }
         [HttpGet("About")]
         public IActionResult About()
