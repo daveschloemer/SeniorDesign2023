@@ -1,0 +1,32 @@
+@model ContactViewModel
+@{
+    <!--ViewBag.Title = "";-->
+}
+@section Scripts {
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.js"></script>
+}
+<br />
+<br />
+<br />
+<br />
+<div style="text-align: center">
+    <img src="~/img/sent.png" alt="check_mark_img" align="center" width="200" height="200" />
+    <h2>Your Message to the Seller has been Sent!</h2>
+    <h3>Please give the seller some time to respond</h3>
+    <br />
+</div>
+<br />
+<br />
+<div class="container">
+    <div class="row justify-content-center mt-5">
+        <div class="col-sm-4">
+            <a class="btn btn-primary btn-lg btn-block" asp-controller="Home" asp-action="Home">Home</a>
+        </div>
+        <div class="col-sm-4">
+                <a class="btn btn-primary btn-lg btn-block" asp-controller="Catalog" asp-action="MyListing">My Listings</a>
+        </div>
+    </div>
+</div>
+
+</div>
