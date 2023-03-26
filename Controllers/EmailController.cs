@@ -14,6 +14,7 @@ namespace FreshBooks.Controllers
     {
         private readonly IEmailService emailService;
         private readonly IBookService _service;
+
         public EmailController(IEmailService emailService, IBookService service)
         {
             this.emailService = emailService;
@@ -28,10 +29,11 @@ namespace FreshBooks.Controllers
             var booksDetail = await _service.GetBookAsync(orderInformation.BookID);
             var email = booksDetail.Email;
             string userEmail = User.FindFirstValue(ClaimTypes.Email);
+
             var request = new EmailDto();
             request.To = email;
             request.Subject = $"Buyer Interest - {orderInformation.BuyerName} - {orderInformation.BookTitle}";
-            request.Body = $"Hello, </br> " +
+            request.Body = $"Hello, </br></br> " +
                 $"{orderInformation.BuyerName} is interested in buying a book that you have listed. </br>" +
                 $"<h4>Book Information:</h4> </br>" +
                 $"Title:{orderInformation.BookTitle}</br>" +
@@ -45,17 +47,15 @@ namespace FreshBooks.Controllers
                 $"" +
                 $"To remove the textbook from your listings page:</br>" +
                 $"" +
-                $"Click on your profile -> My Listing -> Find your Book -> Click on remove listing" +
+                $"Click on your profile -> My Listing -> Find your Book -> Click on remove listing</br>" +
                 $"" +
-                $"Thanks!" +
+                $"Thanks!</br>" +
                 $"" +
                 $"The FreshBooks Team";
 
             this.emailService.SendEmail(request);
 
-            //_emailService.SendEmail(request);
-            return Ok();
-
+            return RedirectToAction("MessageSent", "Home");
         }
     }
 }

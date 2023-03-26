@@ -75,6 +75,11 @@ namespace FreshBooks.Controllers
         {
             return View();
         }
+        [HttpGet("MessageSent")]
+        public IActionResult MessageSent()
+        {
+            return View();
+        }
         [HttpGet("OrderForm")]
         public async Task<IActionResult> OrderForm(int id)
         {
