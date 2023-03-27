@@ -36,22 +36,22 @@ namespace FreshBooks.Controllers
             request.Body = $"Hello, </br></br> " +
                 $"{orderInformation.BuyerName} is interested in buying a book that you have listed. </br>" +
                 $"<h4>Book Information:</h4> </br>" +
-                $"Title:{orderInformation.BookTitle}</br>" +
-                $"ISBN:{orderInformation.ISBN}</br>" +
-                $"Author:{orderInformation.Author}</br>" +
-                $"<img src='{orderInformation.imagesURL}' alt='{orderInformation.BookTitle}' style='width: 100%; max-width: 600px;'/></br>" +
+                $"<b>Title:</b> {orderInformation.BookTitle}</br>" +
+                $"<b>ISBN:</b> {orderInformation.ISBN}</br>" +
+                $"<b>Author:</b> {orderInformation.Author}</br></br>" +
+                $"<img src='{orderInformation.imagesURL}' alt='{orderInformation.BookTitle}' style='width: 50%; max-width: 300px;'/></br></br>" +
                 $"" +
-                $"Please contact the buyer with the listed email:{userEmail} </br>" +
+                $"Please contact the buyer with the listed email: {userEmail} </br></br>" +
                 $"" +
-                $"The buyer has requested to meet at the following location:{orderInformation.Location} </br>" +
+                $"The buyer has requested to meet at the following location: {orderInformation.Location} </br></br>" +
                 $"" +
-                $"If the book is no longer available, please login and remove it from your listing.</br>" +
+                $"If the book is no longer available, please login and remove it from your listing.</br></br>" +
                 $"" +
                 $"To remove the textbook from your listings page:</br>" +
                 $"" +
-                $"Click on your profile -> My Listing -> Find your Book -> Click on remove listing</br>" +
+                $"Click on your profile -> My Listing -> Find your Book -> Click on remove listing</br></br>" +
                 $"" +
-                $"Thanks!</br>" +
+                $"Thanks!</br></br>" +
                 $"" +
                 $"The FreshBooks Team";
 

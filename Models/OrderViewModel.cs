@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Mvc;
 
 namespace FreshBooks.Models
 {
@@ -32,7 +33,10 @@ namespace FreshBooks.Models
         [Required]
         public string imagesURL { get; set; }
 
-        public bool IsOptionOneSelected { get; set; }
+        [Required(ErrorMessage = "Please select a location")]
+        public string Location { get; set; }
+
+
         /*        [Required]
         *//*        public string UserName { get; set; }*/
     }
